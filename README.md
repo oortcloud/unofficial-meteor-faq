@@ -12,6 +12,8 @@ If it's a simple client side JS script, you can include it in `client/` or `lib/
 
 Node modules are more difficult as they are not included in the bundle created by the  `meteor deploy` command. So if you are publishing to `meteor.com`, you won't be able to use them.
 
+There is [a way around](http://stackoverflow.com/questions/10476170/how-can-i-deploy-node-modules-in-a-meteor-app-on-meteor-com) this, via a hack using the `public/` directory. However YMMV, with compiled modules or ones that make heavy use of system calls. Hopefully there will some official means of support in the future.
+
 
 ##How do I stop meteor from reactively overwriting DOM changes from outside meteor?
 
