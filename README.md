@@ -2,6 +2,10 @@ Unofficial Meteor FAQ
 =====================
 Just answering some common questions that aren’t answered in the [official meteor FAQ](http://www.meteor.com/faq/).
 
+##How do I update this FAQ?
+
+Send me (Tom Coleman, @tmeasday) a message on github (or otherwise) or fork the FAQ and send a pull request (we can discuss changes and ideas as part of the pull request).
+
 ##How can I use someone else's javascript in my meteor project?
 
 It depends on how it's packaged. If there's already a smart package, you can use [meteorite](http://possibilities.github.com/meteorite/) to include it. Make sure you check the [atmosphere](http://atmosphere.meteor.com) package repository too.
@@ -63,9 +67,11 @@ Meteor.subscribe('foo', function() {
 The example apps in meteor are very simple, and don’t provide much insight. Here’s my current thinking on the best way to do it: (any suggestions/improvements are very welcome!)
 
 ```bash
-lib/                    # <- any common code for client/server
+lib/                    # <- any common code for client/server. 
 lib/environment.js      # <- general configuration
 lib/vendor              # <- common code from someone else
+## Note that js files in lib folders are loaded before other js files.
+
 models/                 # <- definitions of collections and methods on them (could be collections/)
 
 client/index.html       # <- toplevel html
@@ -81,3 +87,12 @@ server/methods.js       # <- Meteor.method definitions
 server.environment.js   # <- configuration of server side packages
 ```
 
+For larger applications, discrete functionality can be broken up into sub-directories which are themselves organized using the same pattern. The idea here is that eventually module of functionality could be factored out into a separate smart package, and ideally, shared around.
+
+```bash
+feature-foo/            # <- all functionality related to feature 'foo'
+feature-foo/lib/        # <- common code
+feature-foo/models/     # <- model definitions
+feature-foo/client/     # <- files only sent to the client
+feature-foo/server/     # <- files only available on the server
+```
