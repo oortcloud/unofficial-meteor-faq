@@ -21,7 +21,7 @@ There is [a way around](http://stackoverflow.com/questions/10476170/how-can-i-de
 
 ##How do I stop meteor from reactively overwriting DOM changes from outside meteor?
 
-This is now much simple in meteor, you'll want to read the [templates section of the docs](http://docs.meteor.com/#templates_api).
+You'll want to read the [templates section of the docs](http://docs.meteor.com/#templates_api).
 
 ##How do I animate when meteor changes things under me?
 
