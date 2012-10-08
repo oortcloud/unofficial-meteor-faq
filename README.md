@@ -6,9 +6,17 @@ Just answering some common questions that aren’t answered in the [official met
 
 Send me (Tom Coleman, @tmeasday) a message on github (or otherwise) or fork the FAQ and send a pull request (we can discuss changes and ideas as part of the pull request).
 
+##How do I use a unreleased branch of meteor?
+You can git clone it anywhere on your system and then run it with:
+```bash
+$ path/to/checked/out/meteor/meteor
+```
+
+Or you could let [meteorite](http://oortcloud.github.com/meteorite/) do this for you.
+
 ##How can I use someone else's javascript in my meteor project?
 
-It depends on how it's packaged. If there's already a smart package, you can use [meteorite](http://possibilities.github.com/meteorite/) to include it. Make sure you check the [atmosphere](http://atmosphere.meteor.com) package repository too.
+It depends on how it's packaged. If there's already a smart package, you can use [meteorite](http://oortcloud.github.com/meteorite/) to include it. Make sure you check the [atmosphere](http://atmosphere.meteor.com) package repository too.
 
 If it's a simple client side JS script, you can include it in `client/lib/` or `lib/`, although it might be nicer to create a smart package to wrap it, and publish that package on atmosphere. There are some [good instructions](https://atmosphere.meteor.com/wtf/package) on the atmosphere page about how to do that.
 
