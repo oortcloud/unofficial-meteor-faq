@@ -39,6 +39,9 @@ Ideally, you'd use an existing JS router and combine it with a reactive variable
 
 I've written an [entire post](http://bindle.me/blog/index.php/679/page-transitions-in-meteor-getleague-com) about this topic.
 
+##How do I get a callback that runs after my template is attached to the DOM?
+
+This is now straightforward with the `rendered` [callback](http://docs.meteor.com/#template_rendered).
 
 ##How do I know when my subscription is "ready" and not still loading?
 
