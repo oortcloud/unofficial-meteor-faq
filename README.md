@@ -70,6 +70,17 @@ Meteor.subscribe('foo', function() {
 
 [I'm hoping](https://github.com/meteor/meteor/pull/273) this will be even easier in the future.
 
+##How do I hook into an existing, running MongoDB instance?
+You can start meteor with the `MONGO_URL` environment var set:
+```bash
+$ MONGO_URL=mongodb://localhost:27017 meteor
+```
+
+Note that pre-existing data in mongo [may be hard to deal with](https://github.com/meteor/meteor/issues/61).
+
+##How do I set environment variables on meteor.com?
+I don't believe this is possible.
+
 ##Where should I put my files?
 
 The example apps in meteor are very simple, and don’t provide much insight. Here’s my current thinking on the best way to do it: (any suggestions/improvements are very welcome!)
