@@ -39,11 +39,11 @@ Template.item.rendered = function() {
 }
 ```
 
-The `defer` (which corresponds to a `setTimeout` of `0`) is necessary as otherwise the browser won't have had a chance to render the item in the `.loading` state (i.e. hidden / offscree / whatever).
+The `defer` (which corresponds to a `setTimeout` of `0`) is necessary as otherwise the browser won't have had a chance to render the item in the `.loading` state (i.e. hidden / offscreen / whatever).
 
 Removal animations are more difficult, because Meteor will remove the element from the DOM immediately upon the item leaving the collection. Some hacks that you could try (please show me if you get anything working!): 
   - Not deleting the element immediately but waiting for the animation to complete (ughhh, not great interactivity between users).
-  - Hooking up your own `observe` calls on the collection so you can handle `removed` differently (ie. making an 'animating' cursor).
+  - Hooking up your own `observe` calls on the collection so you can handle `removed` differently - ie. making an 'animating' cursor. (Much better, perhaps over-engineering the problem)
 
 ##How do I route my app between different views/pages?
 
