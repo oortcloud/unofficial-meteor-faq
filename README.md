@@ -71,7 +71,7 @@ client/lib/helpers      # <- any helpers (handlebars or otherwise) that are used
 
 client/application.js   # <- subscriptions, basic Meteor.startup code.
 client/index.html       # <- toplevel html
-client/index.js         # <- and it's JS
+client/index.js         # <- and its JS
 client/views/<page>.html  # <- the templates specific to a single page
 client/views/<page>.js    # <- and the JS to hook it up
 client/views/<type>/    # <- if you find you have a lot of views of the same object type
