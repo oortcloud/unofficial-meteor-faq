@@ -29,7 +29,21 @@ This is a similar problem to above. I outlined some techniques that have worked 
 
 ##How do I animate things adding/being removed from collections?
 
-This isn’t really possible to do (unless you put a delay on the element actually being removed from the collection), because liveui will remove the element from the DOM. However, it's hoped that spark will help with this case too.
+One way to animate things being added is to transition from a `.loading` class when it's rendered. In the relevant template's `rendered` function, add some code like:
+```js
+Template.item.rendered = function() {
+  var $item = $(this.find('.item'));
+  Meteor.defer(function() {
+    $item.removeClass('loading');
+  });
+}
+```
+
+The `defer` (which corresponds to a `setTimeout` of `0`) is necessary as otherwise the browser won't have had a chance to render the item in the `.loading` state (i.e. hidden / offscree / whatever).
+
+Removal animations are more difficult, because Meteor will remove the element from the DOM immediately upon the item leaving the collection. Some hacks that you could try (please show me if you get anything working!): 
+  - Not deleting the element immediately but waiting for the animation to complete (ughhh, not great interactivity between users).
+  - Hooking up your own `observe` calls on the collection so you can handle `removed` differently (ie. making an 'animating' cursor).
 
 ##How do I route my app between different views/pages?
 
