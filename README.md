@@ -102,6 +102,9 @@ First off, you'll want to make sure you are using the [auth branch](https://gith
 2. All other JS files do, (although they are minified + concatenated).
 3. Any method call can be made by hand from the JS console.
 
+##How do I debug my meteor app?
+Client-side you have the console. For some hints on server side debugging, see this [SO question](http://stackoverflow.com/questions/12448848/how-to-debug-and-log-own-code-on-the-server-side-of-meteor/12507788#12507788).
+
 ##Where should I put my files?
 
 The example apps in meteor are very simple, and don’t provide much insight. Here’s my current thinking on the best way to do it: (any suggestions/improvements are very welcome!)
