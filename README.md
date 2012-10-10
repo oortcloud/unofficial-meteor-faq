@@ -142,3 +142,10 @@ feature-foo/models/     # <- model definitions
 feature-foo/client/     # <- files only sent to the client
 feature-foo/server/     # <- files only available on the server
 ```
+
+## What IDEs are best suited for meteor?
+
+While many IDEs [support SASS](http://sass-lang.com/editors.html), [CoffeeScript](http://stackoverflow.com/questions/4084167/ide-or-its-add-in-for-coffeescript-programming) etc., at the moment, there are no known IDEs that support meteor. Two efforts are underway:
+
+* [Cloud9](https://github.com/meteor/meteor/issues/214#issuecomment-8892697), the cloud-based IDE with Node.js support
+* JetBrains [WebStorm](http://youtrack.jetbrains.com/issue/WI-13858) (Win/Mac/Linux), with existing support for Node.js. If you use Webstorm, make sure to [disable auto-save](devnet.jetbrains.net/message/5469319). WebStorm has a free [open-source license](http://www.jetbrains.com/webstorm/buy/index.jsp).
