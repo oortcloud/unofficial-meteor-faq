@@ -20,7 +20,7 @@ It depends on how it's packaged. If there's already a smart package, you can use
 
 If it's a simple client side JS script, you can include it in `client/lib/` or `lib/`, although it might be nicer to create a smart package to wrap it, and publish that package on atmosphere. There are some [good instructions](https://atmosphere.meteor.com/wtf/package) on the atmosphere page about how to do that.
 
-##What about node modules?
+##What about `Node.js` modules?
 
 Node modules are more difficult as they are not included in the bundle created by the  `meteor deploy` command. So if you are publishing to `meteor.com`, you won't be able to use them.
 
@@ -54,6 +54,16 @@ Removal animations are more difficult, because Meteor will remove the element fr
   - Hooking up your own `observe` calls on the collection so you can handle `removed` differently - ie. making an 'animating' cursor. (Much better, perhaps over-engineering the problem)
 
 You may also want to [render items added by the client in a different state, until they're confirmed server side](http://stackoverflow.com/questions/10082537/in-meteor-how-do-i-show-newly-inserted-data-as-greyed-out-until-its-been-confi).
+
+## How do I ensure control state preservation across live updates?
+
+Add the `preserve-inputs` package.
+
+From the [docs](http://docs.meteor.com): "For a form control to match and be preserved, it must have an id attribute or a name attribute that identify it uniquely."
+
+Also, make sure to store related client-side data in the [Session](http://docs.meteor.com/#session) object (not in JavaScript variables)
+
+
 
 ##How do I route my app between different views/pages?
 
