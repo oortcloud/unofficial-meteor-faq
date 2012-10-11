@@ -161,3 +161,7 @@ While many IDEs [support SASS](http://sass-lang.com/editors.html), [CoffeeScript
 
 * [Cloud9](https://github.com/meteor/meteor/issues/214#issuecomment-8892697), the cloud-based IDE with Node.js support
 * JetBrains [WebStorm](http://youtrack.jetbrains.com/issue/WI-13858) (Win/Mac/Linux), with existing support for Node.js. If you use Webstorm, make sure to [disable auto-save](devnet.jetbrains.net/message/5469319). WebStorm has a free [open-source license](http://www.jetbrains.com/webstorm/buy/index.jsp).
+
+## What are the recommended options for Meteor hosting?
+
+Please see [this thread in meteor-talk](https://groups.google.com/forum/#!topic/meteor-talk/Y7N2RwjZiNQ).
