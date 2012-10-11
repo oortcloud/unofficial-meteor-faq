@@ -55,15 +55,15 @@ Removal animations are more difficult, because Meteor will remove the element fr
 
 You may also want to [render items added by the client in a different state, until they're confirmed server side](http://stackoverflow.com/questions/10082537/in-meteor-how-do-i-show-newly-inserted-data-as-greyed-out-until-its-been-confi).
 
-## How do I ensure control state preservation across live updates?
+## How do I ensure control state preservation across live page updating?
 
 Add the `preserve-inputs` package.
 
-From the [docs](http://docs.meteor.com): "For a form control to match and be preserved, it must have an id attribute or a name attribute that identify it uniquely."
+From the [docs](http://docs.meteor.com): "This preserves all elements of type input, textarea, button, select, and option that have unique id attributes or that have name attributes that are unique within an enclosing element with an id attribute."
 
 Also, make sure to store related client-side data in the [Session](http://docs.meteor.com/#session) object (not in JavaScript variables)
 
-
+NOTE: form data will still get cleared across hot-code pushes unfortunately.
 
 ##How do I route my app between different views/pages?
 
