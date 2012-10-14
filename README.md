@@ -1,6 +1,6 @@
 Unofficial Meteor FAQ
 =====================
-Just answering some common questions that aren’t answered in the [official meteor FAQ](http://www.meteor.com/faq/). Thanks go to @dandv, @possibilities, @IainShigeoka and @brainclone. 
+Just answering some common questions that aren’t answered in the [official meteor FAQ](http://www.meteor.com/faq/). Thanks go to @dandv, @possibilities, @IainShigeoka, @brainclone and @matb33. 
 
 ##How do I update this FAQ?
 
@@ -124,6 +124,7 @@ The example apps in meteor are very simple, and don’t provide much insight. He
 ```bash
 lib/                    # <- any common code for client/server. 
 lib/environment.js      # <- general configuration
+lib/methods.js          # <- Meteor.method definitions
 lib/external            # <- common code from someone else
 ## Note that js files in lib folders are loaded before other js files.
 
@@ -141,7 +142,6 @@ client/views/<page>.js    # <- and the JS to hook it up
 client/views/<type>/    # <- if you find you have a lot of views of the same object type
 
 server/publications.js  # <- Meteor.publish definitions
-server/methods.js       # <- Meteor.method definitions
 server/lib/environment.js   # <- configuration of server side packages
 ```
 
