@@ -115,44 +115,49 @@ First off, you'll want to make sure you are using the [auth branch](https://gith
 3. Any method call can be made by hand from the JS console.
 
 ##How do I debug my meteor app?
-Client-side you have the console. For some hints on server side debugging, see this [SO question](http://stackoverflow.com/questions/12448848/how-to-debug-and-log-own-code-on-the-server-side-of-meteor/12507788#12507788).
+Client-side you have the console. For some hints on server side debugging - see this [SO question](http://stackoverflow.com/questions/12448848/how-to-debug-and-log-own-code-on-the-server-side-of-meteor/12507788#12507788).
+
+##What are the best practices for Test-Driven Development?
+TDD support isn't official yet in meteor, but (test) files placed in the `tests` subdirectory won't be loaded on the client or server. There are various Node.JS modules that help with testing - see [Meteor test driven development](http://stackoverflow.com/questions/12987525/meteor-test-driven-development) on SO.
 
 ##Where should I put my files?
 
 The example apps in meteor are very simple, and don’t provide much insight. Here’s my current thinking on the best way to do it: (any suggestions/improvements are very welcome!)
 
 ```bash
-lib/                    # <- any common code for client/server. 
-lib/environment.js      # <- general configuration
-lib/methods.js          # <- Meteor.method definitions
-lib/external            # <- common code from someone else
+lib/                       # <- any common code for client/server. 
+lib/environment.js         # <- general configuration
+lib/methods.js             # <- Meteor.method definitions
+lib/external               # <- common code from someone else
 ## Note that js files in lib folders are loaded before other js files.
 
-collections/                 # <- definitions of collections and methods on them (could be models/)
+collections/               # <- definitions of collections and methods on them (could be models/)
 
-client/lib              # <- client specific libraries (also loaded first)
-client/lib/environment.js   # <- configuration of any client side packages
-client/lib/helpers      # <- any helpers (handlebars or otherwise) that are used often in view files
+client/lib                 # <- client specific libraries (also loaded first)
+client/lib/environment.js  # <- configuration of any client side packages
+client/lib/helpers         # <- any helpers (handlebars or otherwise) that are used often in view files
 
-client/application.js   # <- subscriptions, basic Meteor.startup code.
-client/index.html       # <- toplevel html
-client/index.js         # <- and its JS
-client/views/<page>.html  # <- the templates specific to a single page
-client/views/<page>.js    # <- and the JS to hook it up
-client/views/<type>/    # <- if you find you have a lot of views of the same object type
+client/application.js      # <- subscriptions, basic Meteor.startup code.
+client/index.html          # <- toplevel html
+client/index.js            # <- and its JS
+client/views/<page>.html   # <- the templates specific to a single page
+client/views/<page>.js     # <- and the JS to hook it up
+client/views/<type>/       # <- if you find you have a lot of views of the same object type
 
-server/publications.js  # <- Meteor.publish definitions
-server/lib/environment.js   # <- configuration of server side packages
+server/publications.js     # <- Meteor.publish definitions
+server/lib/environment.js  # <- configuration of server side packages
+
+tests/                     # <- unit test files (won't be loaded on client or server)
 ```
 
 For larger applications, discrete functionality can be broken up into sub-directories which are themselves organized using the same pattern. The idea here is that eventually module of functionality could be factored out into a separate smart package, and ideally, shared around.
 
 ```bash
-feature-foo/            # <- all functionality related to feature 'foo'
-feature-foo/lib/        # <- common code
-feature-foo/models/     # <- model definitions
-feature-foo/client/     # <- files only sent to the client
-feature-foo/server/     # <- files only available on the server
+feature-foo/               # <- all functionality related to feature 'foo'
+feature-foo/lib/           # <- common code
+feature-foo/models/        # <- model definitions
+feature-foo/client/        # <- files only sent to the client
+feature-foo/server/        # <- files only available on the server
 ```
 
 ## What IDEs are best suited for meteor?
