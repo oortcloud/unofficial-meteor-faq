@@ -108,7 +108,7 @@ There is some good work in Mike Bannister's [forms package](http://forms.meteor.
 There's brief discussion [on telescope](http://telesc.pe/posts/ae8561f8-02c6-47da-81d3-4758ee6effa3). Also, there's a [filepicker smart package](https://atmosphere.meteor.com/package/filepicker).
 
 ##What are best practices for security?
-First off, you'll want to make sure you are using the [auth branch](https://github.com/meteor/meteor/wiki/Getting-Started-with-Auth) (hint: https://github.com/tmeasday/unofficial-meteor-faq#how-do-i-use-a-unreleased-branch-of-meteor). Some other points:
+First off, you'll want to make sure you are using version 0.5.0 or later, which implements [authentication](http://docs.meteor.com/#accounts_api). Some other points:
 
 1. Files in `server/` do not get served to the client
 2. All other JS files do, (although they are minified + concatenated).
