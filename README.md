@@ -37,7 +37,9 @@ This is a similar problem to above. I outlined some techniques that have worked 
 
 ##How do I animate things adding/being removed from collections?
 
-One way to animate things being added is to transition from a `.loading` class when it's rendered. In the relevant template's `rendered` function, add some code like:
+One way to animate things being added is to transition from a `.loading` class when it's rendered. First, add a `.loading` class to to the element in the HTML.
+
+Then, in the relevant template's `rendered` function, remove the class just after it attaches to the document:
 ```js
 Template.item.rendered = function() {
   var $item = $(this.find('.item'));
