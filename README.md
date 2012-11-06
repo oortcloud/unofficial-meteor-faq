@@ -145,6 +145,7 @@ client/index.js            # <- and its JS
 client/views/<page>.html   # <- the templates specific to a single page
 client/views/<page>.js     # <- and the JS to hook it up
 client/views/<type>/       # <- if you find you have a lot of views of the same object type
+client/stylesheets/        # <- css / styl / less files
 
 server/publications.js     # <- Meteor.publish definitions
 server/lib/environment.js  # <- configuration of server side packages
