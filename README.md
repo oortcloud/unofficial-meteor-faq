@@ -169,3 +169,18 @@ While many IDEs [support SASS](http://sass-lang.com/editors.html), [CoffeeScript
 
 * [Cloud9](https://github.com/meteor/meteor/issues/214#issuecomment-8892697), the cloud-based IDE with Node.js support
 * JetBrains [WebStorm](http://youtrack.jetbrains.com/issue/WI-13858) (Win/Mac/Linux), with existing support for Node.js. If you use Webstorm, make sure to [disable auto-save](devnet.jetbrains.net/message/5469319).Webstorm is proprietary software that offers a [gratis license](http://www.jetbrains.com/webstorm/buy/index.jsp) to people working on open source projects
+
+
+## Troubleshooting errors
+
+### "Uncaught SyntaxError: Unexpected token Y"
+
+Client-side error caused by the server crashing and sending a message starting with "Your app is crashing. Here's the latest log."
+
+### "TypeError: Object #<Object> has no method '_defineMutationMethods'"
+
+Server-side error. Most likely, you forgot to place "new" before a constructor call in the client. [Read more](https://github.com/meteor/meteor/issues/457).
+
+### "Uncaught TypeError: Converting circular structure to JSON"
+
+Check if you're trying to save into `Session` an object with circular references, such as a `Collection`. [Read more](https://github.com/meteor/meteor/issues/139#issuecomment-9975384).
