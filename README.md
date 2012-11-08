@@ -184,3 +184,7 @@ Server-side error. Most likely, you forgot to place "new" before a constructor c
 ### "Uncaught TypeError: Converting circular structure to JSON"
 
 Check if you're trying to save into `Session` an object with circular references, such as a `Collection`. [Read more](https://github.com/meteor/meteor/issues/139#issuecomment-9975384).
+
+### "Unexpected mongo exit code 100. Restarting."
+
+Mongo was killed without cleaning itself up. Try removing `.meteor/local/db/mongod.lock`. If that fails do an `meteor reset`.
