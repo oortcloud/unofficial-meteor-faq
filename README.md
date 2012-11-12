@@ -94,7 +94,7 @@ Removal animations are more difficult, because Meteor will remove the element fr
 You may also want to [render items added by the client in a different state, until they're confirmed server side](http://stackoverflow.com/questions/10082537/in-meteor-how-do-i-show-newly-inserted-data-as-greyed-out-until-its-been-confi).
 
 
-##How do I route my app between different views/pages?
+###How do I route my app between different views/pages?
 
 Ideally, you'd use an existing JS router and combine it with a reactive variable (e.g. in the session) which defines the visible page. Or you could just try my [reactive router](https://github.com/tmeasday/meteor-router) which does this for you with the backbone router. Worth a look even if you want to use a different router as it could give you some ideas.
 
