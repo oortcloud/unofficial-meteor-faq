@@ -130,6 +130,19 @@ Meteor.subscribe('foo', function() {
 
 [I'm hoping](https://github.com/meteor/meteor/pull/273) this will be even easier in the future.
 
+### Why does `observe` fire a bunch of `added` events for existing documents.
+
+The default behaviour is to do this, because it's often what you want (think about how the `{{#each}}` tag works for instance). You can avoid it with a hidden options though:
+
+```js
+Posts.find().observe({
+  _suppress_initial: true,
+  added: function() {
+    // ...
+  }
+})
+
+Note that considering this option is undocumented (and underscore-cased), it could silently change in the future.
 
 ## Deployment
 ###How do I hook into an existing, running MongoDB instance?
