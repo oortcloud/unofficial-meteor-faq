@@ -1,12 +1,14 @@
 Unofficial Meteor FAQ
 =====================
-Just answering some common questions that aren’t answered in the [official meteor FAQ](http://www.meteor.com/faq/). Thanks go to @dandv, @possibilities, @IainShigeoka, @brainclone and @matb33. 
+Just answering some common questions that aren’t answered in the [official meteor FAQ](http://www.meteor.com/faq/). Thanks go to @dandv, @possibilities, @IainShigeoka, @brainclone, @matb33, and @drorm. 
 
-##How do I update this FAQ?
+###How do I update this FAQ?
 
 Send me (Tom Coleman, @tmeasday) a message on github (or otherwise) or fork the FAQ and send a pull request (we can discuss changes and ideas as part of the pull request).
 
-##How do I use a unreleased branch of meteor?
+## Customizing Meteor
+
+###How do I use a unreleased branch of meteor?
 You can git clone it anywhere on your system and then run it with:
 ```bash
 $ path/to/checked/out/meteor/meteor
@@ -14,28 +16,62 @@ $ path/to/checked/out/meteor/meteor
 
 Or you could let [meteorite](http://oortcloud.github.com/meteorite/) do this for you.
 
-##How can I use someone else's javascript in my meteor project?
+###How can I use someone else's javascript in my meteor project?
 
 It depends on how it's packaged. If there's already a smart package, you can use [meteorite](http://oortcloud.github.com/meteorite/) to include it. Make sure you check the [atmosphere](http://atmosphere.meteor.com) package repository too.
 
 If it's a simple client side JS script, you can include it in `client/lib/` or `lib/`, although it might be nicer to create a smart package to wrap it, and publish that package on atmosphere. There are some [good instructions](https://atmosphere.meteor.com/wtf/package) on the atmosphere page about how to do that.
 
-##What about `Node.js` modules?
+###What about `Node.js` modules?
 
-Node modules are more difficult as they are not included in the bundle created by the  `meteor deploy` command. So if you are publishing to `meteor.com`, you won't be able to use them.
+You can get access to node's native require functionality via:
+```js
+var foo = __meteor_bootstrap__.require('foo');
+```
 
-There is [a way around](http://stackoverflow.com/questions/10476170/how-can-i-deploy-node-modules-in-a-meteor-app-on-meteor-com) this, via a hack using the `public/` directory. However it's also usually necessary to wrap the API in a fiber to allow it to interoperate with meteor, and chances are things are bit complex. You'll want to take a look at Mike Bannister's [node-modules package](https://github.com/possibilities/meteor-node-modules).
+Note that this will probably work for you local development, but you my have more trouble if you try to use that command when you deploy somewhere, depending on how much control you have over the deployment environment.
 
+Some info for you:
+- *.meteor.com deploys will only have node modules that are included in the current buildpack available.
+- heroku deploys will likewise, although it would be possible to extend the buildpack to pre-install whatever node modules you need.
+- It's possible to hack modules into your project via [this technique](http://stackoverflow.com/questions/10476170/how-can-i-deploy-node-modules-in-a-meteor-app-on-meteor-com). However it's also usually necessary to wrap the API in a fiber to allow it to interoperate with meteor, and chances are things are bit complex. You will also have problems if your package is compiled. You'll want to take a look at Mike Bannister's [node-modules package](https://github.com/possibilities/meteor-node-modules).
 
-##How do I stop meteor from reactively overwriting DOM changes from outside meteor?
+## Reactivity and Rendering
+
+###How do I stop meteor from reactively overwriting DOM changes from outside meteor?
 
 You'll want to read the [templates section of the docs](http://docs.meteor.com/#templates_api).
 
-##How do I animate when meteor changes things under me?
+### How do I ensure control state preservation across live page updating?
+
+Add the `preserve-inputs` package.
+
+From the [docs](http://docs.meteor.com): "This preserves all elements of type input, textarea, button, select, and option that have unique id attributes or that have name attributes that are unique within an enclosing element with an id attribute."
+
+Also, make sure to store related client-side data in the [Session](http://docs.meteor.com/#session) object (not in JavaScript variables)
+
+NOTE: form data will still get cleared across hot-code pushes unfortunately.
+
+###How do I get a callback that runs after my template is attached to the DOM?
+
+This is now straightforward with the `rendered` [callback](http://docs.meteor.com/#template_rendered).
+
+
+## Animation
+### How do I animate when meteor changes things under me?
 
 This is a similar problem to above. I outlined some techniques that have worked for me in a [blog post](http://bindle.me/blog/index.php/658/animations-in-meteor-state-of-the-game). 
+### How do I ensure control state preservation across live page updating?
 
-##How do I animate things adding/being removed from collections?
+Add the `preserve-inputs` package.
+
+From the [docs](http://docs.meteor.com): "This preserves all elements of type input, textarea, button, select, and option that have unique id attributes or that have name attributes that are unique within an enclosing element with an id attribute."
+
+Also, make sure to store related client-side data in the [Session](http://docs.meteor.com/#session) object (not in JavaScript variables)
+
+NOTE: form data will still get cleared across hot-code pushes unfortunately.
+
+###How do I animate things adding/being removed from collections?
 
 One way to animate things being added is to transition from a `.loading` class when it's rendered. First, add a `.loading` class to to the element in the HTML.
 
@@ -57,29 +93,18 @@ Removal animations are more difficult, because Meteor will remove the element fr
 
 You may also want to [render items added by the client in a different state, until they're confirmed server side](http://stackoverflow.com/questions/10082537/in-meteor-how-do-i-show-newly-inserted-data-as-greyed-out-until-its-been-confi).
 
-## How do I ensure control state preservation across live page updating?
-
-Add the `preserve-inputs` package.
-
-From the [docs](http://docs.meteor.com): "This preserves all elements of type input, textarea, button, select, and option that have unique id attributes or that have name attributes that are unique within an enclosing element with an id attribute."
-
-Also, make sure to store related client-side data in the [Session](http://docs.meteor.com/#session) object (not in JavaScript variables)
-
-NOTE: form data will still get cleared across hot-code pushes unfortunately.
 
 ##How do I route my app between different views/pages?
 
 Ideally, you'd use an existing JS router and combine it with a reactive variable (e.g. in the session) which defines the visible page. Or you could just try my [reactive router](https://github.com/tmeasday/meteor-router) which does this for you with the backbone router. Worth a look even if you want to use a different router as it could give you some ideas.
 
-##How do I animate/transition such view changes?
+###How do I animate/transition such view changes?
 
 I've written an [entire post](http://bindle.me/blog/index.php/679/page-transitions-in-meteor-getleague-com) about this topic.
 
-##How do I get a callback that runs after my template is attached to the DOM?
 
-This is now straightforward with the `rendered` [callback](http://docs.meteor.com/#template_rendered).
-
-##How do I know when my subscription is "ready" and not still loading?
+## Subscriptions and Methods
+###How do I know when my subscription is "ready" and not still loading?
 
 Obviously data could keep changing indefinitely, but for the first set of data, you can use meteor’s `onComplete` callback:
 
@@ -92,7 +117,9 @@ Meteor.subscribe('foo', function() {
 
 [I'm hoping](https://github.com/meteor/meteor/pull/273) this will be even easier in the future.
 
-##How do I hook into an existing, running MongoDB instance?
+
+## Deployment
+###How do I hook into an existing, running MongoDB instance?
 You can start meteor with the `MONGO_URL` environment var set:
 ```bash
 $ MONGO_URL=mongodb://localhost:27017 meteor
@@ -100,29 +127,31 @@ $ MONGO_URL=mongodb://localhost:27017 meteor
 
 Note that pre-existing data in mongo [may be hard to deal with](https://github.com/meteor/meteor/issues/61).
 
-##How do I set environment variables on meteor.com?
-I don't believe this is possible.
+###How do I set environment variables on meteor.com?
+This is not currently possible, unfortunately. You can set `process.env.X = Y` early on in the startup of your app though.
 
-##What are the best practices for form handling?
+## Best practices
+
+###What are the best practices for form handling?
 There is some good work in Mike Bannister's [forms package](http://forms.meteor.com/), however it's a little out of date right now. I imagine there will be something coming in core eventually.
 
-##What is the best way to do file uploads?
+###What is the best way to do file uploads?
 There's brief discussion [on telescope](http://telesc.pe/posts/ae8561f8-02c6-47da-81d3-4758ee6effa3). Also, there's a [filepicker smart package](https://atmosphere.meteor.com/package/filepicker).
 
-##What are best practices for security?
+###What are best practices for security?
 First off, you'll want to make sure you are using version 0.5.0 or later, which implements [authentication](http://docs.meteor.com/#accounts_api). Some other points:
 
 1. Files in `server/` do not get served to the client
 2. All other JS files do, (although they are minified + concatenated).
 3. Any method call can be made by hand from the JS console.
 
-##How do I debug my meteor app?
+###How do I debug my meteor app?
 Client-side you have the console. For some hints on server side debugging - see this [SO question](http://stackoverflow.com/questions/12448848/how-to-debug-and-log-own-code-on-the-server-side-of-meteor/12507788#12507788).
 
-##What are the best practices for Test-Driven Development?
+###What are the best practices for Test-Driven Development?
 TDD support isn't official yet in meteor, but (test) files placed in the `tests` subdirectory won't be loaded on the client or server. There are various Node.JS modules that help with testing - see [Meteor test driven development](http://stackoverflow.com/questions/12987525/meteor-test-driven-development) on SO.
 
-##Where should I put my files?
+###Where should I put my files?
 
 The example apps in meteor are very simple, and don’t provide much insight. Here’s my current thinking on the best way to do it: (any suggestions/improvements are very welcome!)
 
@@ -163,7 +192,7 @@ feature-foo/client/        # <- files only sent to the client
 feature-foo/server/        # <- files only available on the server
 ```
 
-## What IDEs are best suited for meteor?
+### What IDEs are best suited for meteor?
 
 While many IDEs [support SASS](http://sass-lang.com/editors.html), [CoffeeScript](http://stackoverflow.com/questions/4084167/ide-or-its-add-in-for-coffeescript-programming) etc., at the moment, there are no known IDEs that support meteor. Two efforts are underway:
 
