@@ -141,6 +141,7 @@ Posts.find().observe({
     // ...
   }
 })
+```
 
 Note that considering this option is undocumented (and underscore-cased), it could silently change in the future.
 
