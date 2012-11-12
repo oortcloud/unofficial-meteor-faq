@@ -130,7 +130,7 @@ Meteor.subscribe('foo', function() {
 
 [I'm hoping](https://github.com/meteor/meteor/pull/273) this will be even easier in the future.
 
-### Why does `observe` fire a bunch of `added` events for existing documents.
+### Why does `observe` fire a bunch of `added` events for existing documents?
 
 The default behaviour is to do this, because it's often what you want (think about how the `{{#each}}` tag works for instance). You can avoid it with a hidden options though:
 
