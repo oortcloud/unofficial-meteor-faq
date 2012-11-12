@@ -104,7 +104,20 @@ I've written an [entire post](http://bindle.me/blog/index.php/679/page-transitio
 
 
 ## Subscriptions and Methods
-###How do I know when my subscription is "ready" and not still loading?
+
+### How do I get a callback every time data is modified in the database?
+There isn't support for this right now, but you can use a `deny` to achieve the same effect:
+
+```js
+Posts.deny({insert: function(userId, doc) {
+  doc.createdAt = new Date().valueOf();
+  return false;
+}})
+```
+
+Avoid the tempation to use `allow` for this, there's no guarantee it will run (only one `allow` needs to be successful for the `insert` to go ahead).
+
+### How do I know when my subscription is "ready" and not still loading?
 
 Obviously data could keep changing indefinitely, but for the first set of data, you can use meteor’s `onComplete` callback:
 
