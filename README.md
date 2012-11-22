@@ -1,6 +1,6 @@
 Unofficial Meteor FAQ
 =====================
-Just answering some common questions that aren’t answered in the [official meteor FAQ](http://www.meteor.com/faq/). Thanks go to @dandv, @possibilities, @IainShigeoka, @brainclone, @matb33, and @drorm. 
+Just answering some common questions that aren’t answered in the [official meteor FAQ](http://www.meteor.com/faq/). Thanks go to @dandv, @possibilities, @IainShigeoka, @brainclone, @matb33, @drorm and @zVictor. 
 
 ###How do I update this FAQ?
 
