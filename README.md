@@ -146,6 +146,14 @@ Posts.find().observe({
 Note that considering this option is undocumented (and underscore-cased), it could silently change in the future.
 
 ## Deployment
+###Where can I host my applications for production?
+Meteor gives you a proper infrastructure to deploy your application:
+```bash
+meteor deploy myapp.meteor.com
+```
+
+However, there are some [other options available](http://stackoverflow.com/a/13504325/599991).
+
 ###How do I hook into an existing, running MongoDB instance?
 You can start meteor with the `MONGO_URL` environment var set:
 ```bash
