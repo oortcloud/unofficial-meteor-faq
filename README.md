@@ -105,8 +105,8 @@ I've written an [entire post](http://bindle.me/blog/index.php/679/page-transitio
 
 ## Subscriptions and Methods
 
-### How do I get a callback every time data is modified in the database?
-There isn't support for this right now, but you can use a `deny` to achieve the same effect:
+### How can I alter every document before it is added to the database?
+There isn't support for this right now, but you can use a `deny` to achieve what you want on the server. For example, to timestamp each document as it goes into mongo:
 
 ```js
 Posts.deny({insert: function(userId, doc) {
@@ -114,6 +114,8 @@ Posts.deny({insert: function(userId, doc) {
   return false;
 }})
 ```
+
+You can do something similar with `update` to for example simulate a synthetic `updatedAt` field.
 
 Avoid the tempation to use `allow` for this, there's no guarantee it will run (only one `allow` needs to be successful for the `insert` to go ahead).
 
