@@ -254,3 +254,7 @@ Check if you're trying to save into `Session` an object with circular references
 ### "Unexpected mongo exit code 100. Restarting."
 
 Mongo was killed without cleaning itself up. Try removing `.meteor/local/db/mongod.lock`. If that fails do an `meteor reset`.
+
+### `@importing` in less files causes rules to be ignored.
+
+You can't use `@import` in the LESS package right now. It's a [bug](https://github.com/meteor/meteor/issues/203).
