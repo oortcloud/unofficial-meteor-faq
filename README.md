@@ -1,6 +1,6 @@
 Unofficial Meteor FAQ
 =====================
-Just answering some common questions that aren’t answered in the [official meteor FAQ](http://www.meteor.com/faq/). Thanks go to @dandv, @possibilities, @IainShigeoka, @brainclone, @matb33, @drorm and @zVictor. 
+Just answering some common questions that aren’t answered in the [official meteor FAQ](http://www.meteor.com/faq/). Thanks go to [@dandv](/dandv), [@possibilities](/possibilities), [@IainShigeoka](/IainShigeoka), [@brainclone](/brainclone), [@matb33](/matb33), [@drorm](/@drorm) and [@zVictor](/@zVictor). 
 
 ###How do I update this FAQ?
 
@@ -183,7 +183,13 @@ First off, you'll want to make sure you are using version 0.5.0 or later, which 
 3. Any method call can be made by hand from the JS console.
 
 ###How do I debug my meteor app?
-Client-side you have the console. For some hints on server side debugging - see this [SO question](http://stackoverflow.com/questions/12448848/how-to-debug-and-log-own-code-on-the-server-side-of-meteor/12507788#12507788).
+Client-side you have the console. For server-side debugging, use [node-inspector](/dannycoates/node-inspector) and make sure you have meteor [v0.5.3](/meteor/meteor/blob/master/History.md#v053), which makes things easier thanks to support for `NODE_OPTIONS`:
+
+1. Install node-inspector: 'npm install -g node-inspector' 
+2. Start meteor: `NODE_OPTIONS='--debug' mrt run`
+3. Start node-inspector 
+4. Go to the URL given by node-inspector in Chrome
+5. Debug at will
 
 ###What are the best practices for Test-Driven Development?
 TDD support isn't official yet in meteor, but (test) files placed in the `tests` subdirectory won't be loaded on the client or server. There are various Node.JS modules that help with testing - see [Meteor test driven development](http://stackoverflow.com/questions/12987525/meteor-test-driven-development) on SO.
