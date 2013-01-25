@@ -256,6 +256,10 @@ While many IDEs [support SASS](http://sass-lang.com/editors.html), [CoffeeScript
 * JetBrains [WebStorm](http://youtrack.jetbrains.com/issue/WI-13858) (Win/Mac/Linux), with existing support for Node.js. If you use Webstorm, make sure to [disable auto-save](devnet.jetbrains.net/message/5469319).Webstorm is proprietary software that offers a [gratis license](http://www.jetbrains.com/webstorm/buy/index.jsp) to people working on open source projects
 
 
+## What versions of Internet Explorer does meteor support?
+
+There isn't an official list of supported versions, but meteor is known to work on IE8+. 
+
 ## Troubleshooting errors
 
 ### "Uncaught SyntaxError: Unexpected token Y"
