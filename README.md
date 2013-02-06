@@ -235,6 +235,8 @@ client/stylesheets/        # <- css / styl / less files
 server/publications.js     # <- Meteor.publish definitions
 server/lib/environment.js  # <- configuration of server side packages
 
+public/                    # <- static files, such as images, that are served directly.
+
 tests/                     # <- unit test files (won't be loaded on client or server)
 ```
 
