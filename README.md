@@ -32,7 +32,7 @@ var foo = __meteor_bootstrap__.require('foo');
 Note that this will probably work for you local development, but you may have trouble if you try to use that command when you deploy somewhere, depending on how much control you have over the deployment environment.
 
 Some info for you:
-- *.meteor.com deploys will only have node modules that are included in the current buildpack available.
+- `*.meteor.com` deploys will only have node modules that are included in the current buildpack available.
 - heroku deploys will likewise, although it would be possible to extend the buildpack to pre-install whatever node modules you need.
 - It's possible to hack modules into your project via [this technique](http://stackoverflow.com/questions/10476170/how-can-i-deploy-node-modules-in-a-meteor-app-on-meteor-com). However it's also usually necessary to wrap the API in a fiber to allow it to interoperate with meteor, and chances are things are bit complex. You will also have problems if your package is compiled. You'll want to take a look at Mike Bannister's [node-modules package](https://github.com/possibilities/meteor-node-modules).
 
