@@ -1,6 +1,6 @@
 Unofficial Meteor FAQ
 =====================
-Just answering some common questions that aren’t answered in the [official meteor FAQ](http://www.meteor.com/faq/). Thanks go to [@dandv](/dandv), [@possibilities](/possibilities), [@IainShigeoka](/IainShigeoka), [@brainclone](/brainclone), [@matb33](/matb33), [@drorm](/@drorm) and [@zVictor](/@zVictor). 
+Just answering some common questions that aren’t answered in the [official meteor FAQ](http://www.meteor.com/faq/). Thanks go to [@dandv](/dandv), [@possibilities](/possibilities), [@IainShigeoka](/IainShigeoka), [@brainclone](/brainclone), [@matb33](/matb33), [@drorm](/@drorm) and [@zVictor](/@zVictor).
 
 ###How do I update this FAQ?
 
@@ -29,7 +29,7 @@ You can get access to node's native require functionality via:
 var foo = __meteor_bootstrap__.require('foo');
 ```
 
-Note that this will probably work for you local development, but you my have more trouble if you try to use that command when you deploy somewhere, depending on how much control you have over the deployment environment.
+Note that this will probably work for you local development, but you may have trouble if you try to use that command when you deploy somewhere, depending on how much control you have over the deployment environment.
 
 Some info for you:
 - *.meteor.com deploys will only have node modules that are included in the current buildpack available.
@@ -62,7 +62,7 @@ Unfortunately, this [isn't yet supported](https://github.com/meteor/meteor/issue
 ```js
 Meteor.startup(function() {
   Meteor.autorun(function() {
-    document.title = Session.get('document-title'); 
+    document.title = Session.get('document-title');
   });
 });
 ```
@@ -73,7 +73,7 @@ Note also that this code should work fine with the spiderable package, as long a
 ## Animation
 ### How do I animate when meteor changes things under me?
 
-This is a similar problem to above. I outlined some techniques that have worked for me in a [blog post](http://bindle.me/blog/index.php/658/animations-in-meteor-state-of-the-game). 
+This is a similar problem to above. I outlined some techniques that have worked for me in a [blog post](http://bindle.me/blog/index.php/658/animations-in-meteor-state-of-the-game).
 ### How do I ensure control state preservation across live page updating?
 
 Add the `preserve-inputs` package.
@@ -100,7 +100,7 @@ Template.item.rendered = function() {
 
 The `defer` (which corresponds to a `setTimeout` of `0`) is necessary as otherwise the browser won't have had a chance to render the item in the `.loading` state (i.e. hidden / offscreen / whatever).
 
-Removal animations are more difficult, because Meteor will remove the element from the DOM immediately upon the item leaving the collection. Some hacks that you could try (please show me if you get anything working!): 
+Removal animations are more difficult, because Meteor will remove the element from the DOM immediately upon the item leaving the collection. Some hacks that you could try (please show me if you get anything working!):
   - Not deleting the element immediately but waiting for the animation to complete (ughhh, not great interactivity between users).
   - Hooking up your own `observe` calls on the collection so you can handle `removed` differently - ie. making an 'animating' cursor. (Much better, perhaps over-engineering the problem)
 
@@ -137,9 +137,9 @@ Avoid the tempation to use `allow` for this, there's no guarantee it will run (o
 Obviously data could keep changing indefinitely, but for the first set of data, you can use meteor’s `onComplete` callback:
 
 ```js
-Session.set('fooLoading', true); 
-Meteor.subscribe('foo', function() { 
-  Session.set('fooLoading', false); 
+Session.set('fooLoading', true);
+Meteor.subscribe('foo', function() {
+  Session.set('fooLoading', false);
 });
 ```
 
@@ -198,9 +198,9 @@ First off, you'll want to make sure you are using version 0.5.0 or later, which 
 ###How do I debug my meteor app?
 Client-side you have the console. For server-side debugging, use [node-inspector](/dannycoates/node-inspector) and make sure you have meteor [v0.5.3](/meteor/meteor/blob/master/History.md#v053), which makes things easier thanks to support for `NODE_OPTIONS`:
 
-1. Install node-inspector: 'npm install -g node-inspector' 
+1. Install node-inspector: 'npm install -g node-inspector'
 2. Start meteor: `NODE_OPTIONS='--debug' mrt run`
-3. Start node-inspector 
+3. Start node-inspector
 4. Go to the URL given by node-inspector in Chrome
 5. Debug at will
 
@@ -212,7 +212,7 @@ TDD support isn't official yet in meteor, but (test) files placed in the `tests`
 The example apps in meteor are very simple, and don’t provide much insight. Here’s my current thinking on the best way to do it: (any suggestions/improvements are very welcome!)
 
 ```bash
-lib/                       # <- any common code for client/server. 
+lib/                       # <- any common code for client/server.
 lib/environment.js         # <- general configuration
 lib/methods.js             # <- Meteor.method definitions
 lib/external               # <- common code from someone else
@@ -260,7 +260,7 @@ While many IDEs [support SASS](http://sass-lang.com/editors.html), [CoffeeScript
 
 ### What versions of Internet Explorer does meteor support?
 
-There isn't an official list of supported versions, but meteor is known to work on IE8+. 
+There isn't an official list of supported versions, but meteor is known to work on IE8+.
 
 ## Troubleshooting errors
 
