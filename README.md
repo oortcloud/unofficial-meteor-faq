@@ -280,6 +280,6 @@ Check if you're trying to save into `Session` an object with circular references
 
 Mongo was killed without cleaning itself up. Try removing `.meteor/local/db/mongod.lock`. If that fails do an `meteor reset`.
 
-### `@importing` in less files causes rules to be ignored.
+### `@importing` in less files causes errors related to variables not found.
 
-You can't use `@import` in the LESS package right now. It's a [bug](https://github.com/meteor/meteor/issues/203).
+If you're using a collection of less files that need to be imported in a specific order because of variable dependencies (like a custom Twitter Bootstrap installation) you can change the extension of the less files _to be imported_ from `.less` to `.lessimport` and then change your `@import file.less` to `@import file.lessimport`. This will prevent the less compiler from automatically trying to compile all your import files independently, yet still let you use them in the order you want.
