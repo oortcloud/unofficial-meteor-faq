@@ -132,6 +132,9 @@ You can do something similar with `update` to for example simulate a synthetic `
 
 Avoid the tempation to use `allow` for this, there's no guarantee it will run (only one `allow` needs to be successful for the `insert` to go ahead).
 
+Alternatively, Mathieu Bouchard (@matb33) has some more complex code to achieve this in a more integrated way [here](https://gist.github.com/matb33/5258260). Ideally in the future core will support something like this.
+
+
 ### How do I know when my subscription is "ready" and not still loading?
 
 Obviously data could keep changing indefinitely, but for the first set of data, you can use meteor’s `onComplete` callback:
