@@ -26,7 +26,7 @@ If it's a simple client side JS script, you can include it in `client/lib/` or `
 
 You can get access to node's native require functionality via:
 ```js
-var foo = __meteor_bootstrap__.require('foo');
+var foo = Npm.require('foo');
 ```
 
 Note that this will probably work for you local development, but you may have trouble if you try to use that command when you deploy somewhere, depending on how much control you have over the deployment environment.
