@@ -160,6 +160,26 @@ Posts.find().observe({
 
 Note that considering this option is undocumented (and underscore-cased), it could silently change in the future.
 
+### Why do I sometimes see two copies of a document during a latency compensated method?
+
+If you insert a document in the both the real (server-side) method and the simulation (client-side), but then subsequently do more work on the server, there will be a time period where, for the a single browser, there will be two copies of the document in the database.
+
+Meteor dev Nick Martin [wrote](https://github.com/meteor/meteor/issues/881#issuecomment-15882223):
+There are a couple ways to work around this:
+
+a) pick the same id on the client and the server. The easiest way to do this (and what the default 'insert' method does) is simply pick an id on the client and pass it along with the document to be inserted.
+
+Doing this will result in their only being one document in the database, so you won't see double. It will still be the case that the server changes to the document don't show up locally until the method is done, though.
+
+b) make the method finish faster. The latency compensation is triggered when the method finishes. If the thing you are blocking on doesn't do any writes (or its writes don't need to be latency compensated), you can have the method return early and complete its work asynchronously.
+
+c) do the writes at the end of the method on the server. batch up all the database modifications and wait till after all the blocking stuff is done. this is gross, but should work to reduce the time where the user may see two items.
+
+We also have an item on the roadmap to make this easy:
+https://trello.com/card/pattern-for-creating-multiple-database-records-from-a-method/508721606e02bb9d570016ae/57
+
+
+
 ## Deployment
 ###Where can I host my applications for production?
 Meteor gives you a proper infrastructure to deploy your application:
