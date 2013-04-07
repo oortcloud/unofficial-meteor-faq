@@ -22,19 +22,16 @@ It depends on how it's packaged. If there's already a smart package, you can use
 
 If it's a simple client side JS script, you can include it in `client/lib/` or `lib/`, although it might be nicer to create a smart package to wrap it, and publish that package on atmosphere. There are some [good instructions](https://atmosphere.meteor.com/wtf/package) on the atmosphere page about how to do that.
 
-###What about `Node.js` modules?
+###What about npm (node) modules?
 
-You can get access to node's native require functionality via:
+Meteor by default comes bundled with a set of node modules, which you can access via:
 ```js
-var foo = __meteor_bootstrap__.require('foo');
+var foo = Npm.require('foo');
 ```
 
-Note that this will probably work for you local development, but you may have trouble if you try to use that command when you deploy somewhere, depending on how much control you have over the deployment environment.
+If you need a npm package that is not included in Meteor, you need to create a Meteor package that wraps it. Avital Oliver created a simple example for the [xml2js npm library](https://github.com/avital/meteor-xml2js-npm-demo).
 
-Some info for you:
-- `*.meteor.com` deploys will only have node modules that are included in the current buildpack available.
-- heroku deploys will likewise, although it would be possible to extend the buildpack to pre-install whatever node modules you need.
-- It's possible to hack modules into your project via [this technique](http://stackoverflow.com/questions/10476170/how-can-i-deploy-node-modules-in-a-meteor-app-on-meteor-com). However it's also usually necessary to wrap the API in a fiber to allow it to interoperate with meteor, and chances are things are bit complex. You will also have problems if your package is compiled. You'll want to take a look at Mike Bannister's [node-modules package](https://github.com/possibilities/meteor-node-modules).
+Note that you _cannot_ `Npm.require` such npm packages from _within your app_, you can only require them _within the Meteor package that depends on them_. This is due to different Meteor packages potentially depending on different versions of the same npm package.
 
 ## Reactivity and Rendering
 
