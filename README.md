@@ -134,16 +134,23 @@ Alternatively, Mathieu Bouchard (@matb33) has some more complex code to achieve 
 
 ### How do I know when my subscription is "ready" and not still loading?
 
-Obviously data could keep changing indefinitely, but for the first set of data, you can use meteor’s `onComplete` callback:
+When you subscribe to a collection you are returned a handle.  This handle has a reactive ready() method that lets you know when the initial snapshot of the collection has been sent to the client.
 
 ```js
-Session.set('fooLoading', true);
-Meteor.subscribe('foo', function() {
-  Session.set('fooLoading', false);
-});
-```
+globalSubscriptionHandles.push(Meteor.subscribe('foo'));
 
-[I'm hoping](https://github.com/meteor/meteor/pull/273) this will be even easier in the future.
+...
+
+Template.item.areCollectionsReady = function()
+{	
+	var isReady = globalSubscriptionHandles.every(function(handle)
+	{
+	    return handle.ready();
+	});
+
+	return isReady;
+}
+```
 
 ### Why does `observe` fire a bunch of `added` events for existing documents?
 
