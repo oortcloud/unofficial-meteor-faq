@@ -143,12 +143,12 @@ globalSubscriptionHandles.push(Meteor.subscribe('foo'));
 
 Template.item.areCollectionsReady = function()
 {	
-		var isReady = globalSubscriptionHandles.every(function(handle)
-    {
-        return handle.ready();
-    });
+	var isReady = globalSubscriptionHandles.every(function(handle)
+	{
+	    return handle.ready();
+	});
 
-    return isReady;
+	return isReady;
 }
 ```
 
