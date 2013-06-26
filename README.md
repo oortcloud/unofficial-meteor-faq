@@ -6,6 +6,12 @@ Just answering some common questions that aren’t answered in the [official met
 
 Send me (Tom Coleman, @tmeasday) a message on github (or otherwise) or fork the FAQ and send a pull request (we can discuss changes and ideas as part of the pull request).
 
+###How can I find out more about Meteor?
+
+ - Obviously, start at the [Meteor Website](http://meteor.com).
+ - [This blog post](http://www.discovermeteor.com/2013/02/10/useful-meteor-resources/) has a list of online resources.
+ - [Discover Meteor](http://discovermeteor.com) (written by the author of this list) is a book which takes you through building an app from scratch.
+
 ## Customizing Meteor
 
 ###How do I use a unreleased branch of meteor?
