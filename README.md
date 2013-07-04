@@ -34,11 +34,7 @@ Meteor by default comes bundled with a set of node modules, which you can access
 ```js
 var foo = Npm.require('foo');
 ```
-
-If you need a npm package that is not included in Meteor, you need to create a Meteor package that wraps it. Avital Oliver created a simple example for the [xml2js npm library](https://github.com/avital/meteor-xml2js-npm-demo).
-
-Note that you _cannot_ `Npm.require` such npm packages from _within your app_, you can only require them _within the Meteor package that depends on them_. This is due to different Meteor packages potentially depending on different versions of the same npm package.
-
+If you need to use other NPM modules. You can use [npm](https://atmosphere.meteor.com/package/npm) smart package. Read this [guide](http://meteorhacks.com/complete-npm-integration-for-meteor.html) to learn more on [using NPM Modules with Meteor](http://meteorhacks.com/complete-npm-integration-for-meteor.html).
 ## Reactivity and Rendering
 
 ###How do I stop meteor from reactively overwriting DOM changes from outside meteor?
