@@ -72,6 +72,19 @@ Meteor.startup(function() {
 
 Note also that this code should work fine with the spiderable package, as long as the `document-title` session var is set when your site initially loads (for instance in a router).
 
+### How can I tell why my code is getting re-run?
+
+If you are using an `autorun` block, you could try this:
+
+```js
+Deps.autorun(function(computation) {
+  computation.onInvalidate(function() {
+    console.trace();
+  });
+  
+  // standard autorun code...
+});
+```
 
 ## Animation
 ### How do I animate when meteor changes things under me?
