@@ -129,7 +129,7 @@ You may also want to [render items added by the client in a different state, unt
 
 ###How do I route my app between different views/pages?
 
-Ideally, you'd use an existing JS router and combine it with a reactive variable (e.g. in the session) which defines the visible page. Or you could just try my [reactive router](https://github.com/tmeasday/meteor-router) which does this for you with the backbone router. Worth a look even if you want to use a different router as it could give you some ideas.
+Ideally, you'd use an existing JS router and combine it with a reactive variable (e.g. in the session) which defines the visible page. Or you could just try [Iron Router](https://atmosphere.meteor.com/package/iron-router), which supersedes my [reactive router](https://github.com/tmeasday/meteor-router) package, which did this for you with the backbone router. Worth a look even if you want to use a different router as it could give you some ideas.
 
 ###How do I animate/transition such view changes?
 
