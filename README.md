@@ -94,16 +94,6 @@ Deps.autorun(function(computation) {
 ### How do I animate when meteor changes things under me?
 
 This is a similar problem to above. I outlined some techniques that have worked for me in a [blog post](http://bindle.me/blog/index.php/658/animations-in-meteor-state-of-the-game).
-### How do I ensure control state preservation across live page updating?
-
-Add the `preserve-inputs` package.
-
-From the [docs](http://docs.meteor.com): "This preserves all elements of type input, textarea, button, select, and option that have unique id attributes or that have name attributes that are unique within an enclosing element with an id attribute."
-
-Also, make sure to store related client-side data in the [Session](http://docs.meteor.com/#session) object (not in JavaScript variables)
-
-NOTE: form data will still get cleared across hot-code pushes unfortunately.
-
 ###How do I animate things adding/being removed from collections?
 
 One way to animate things being added is to transition from a `.loading` class when it's rendered. First, add a `.loading` class to to the element in the HTML.
