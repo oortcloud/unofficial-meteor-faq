@@ -231,6 +231,14 @@ Note that pre-existing data in mongo [may be hard to deal with](https://github.c
 ###How do I set environment variables on meteor.com?
 This is not currently possible, unfortunately. You can set `process.env.X = Y` early on in the startup of your app though.
 
+###How can I push down a static setting or envionment variable to clients (like a intercom.io or google analytics key)?
+If running local dev or using `deploy` you can use `--settings` and point to a .json file. If you're running directly via node or hosted, you can add keys/variable sets to the `__meteor_runtime_config__` array in any app\server\ directory file, which will get serialized to the client on startup. Don't put stuff in here that's secret or that needs to change during client session.
+```javascript
+if (process.env.INTERCOM_APP_ID) {
+  __meteor_runtime_config__.intercomAppId = process.env.INTERCOM_APP_ID;
+}
+```
+
 ## Best practices
 
 ###What are the best practices for form handling?
