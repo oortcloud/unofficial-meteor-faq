@@ -135,7 +135,10 @@ Ideally, you'd use an existing JS router and combine it with a reactive variable
 
 I've written an [entire post](http://bindle.me/blog/index.php/679/page-transitions-in-meteor-getleague-com) about this topic.
 
+###How do I animate "drag-n-drop", "add" and "remove" actions on lists?
 
+Example implementation here: [meteor-todos-sortable-animation](https://github.com/nleush/meteor-todos-sortable-animation).
+ 
 ## Subscriptions and Methods
 
 ### How can I alter every document before it is added to the database?
