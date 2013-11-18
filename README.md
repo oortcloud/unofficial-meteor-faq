@@ -26,6 +26,8 @@ Or you could let [meteorite](http://oortcloud.github.com/meteorite/) do this for
 
 It depends on how it's packaged. If there's already a smart package, you can use [meteorite](http://oortcloud.github.com/meteorite/) to include it. Make sure you check the [atmosphere](http://atmosphere.meteor.com) package repository too.
 
+If there's no Atmosphere package yet, consider [repackaging the external library for meteor](https://github.com/awwx/misc/wiki/Packaging-Existing-Libraries-for-Meteor).
+
 If it's a simple client side JS script, you can include it in `client/lib/` or `lib/`, although it might be nicer to create a smart package to wrap it, and publish that package on atmosphere. There are some [good instructions](https://atmosphere.meteor.com/wtf/package) on the atmosphere page about how to do that.
 
 ###What about npm (node) modules?
