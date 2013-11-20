@@ -254,14 +254,17 @@ First off, you'll want to make sure you are using version 0.5.0 or later, which 
 ###How do I debug my meteor app?
 Client-side you have the console. For server-side debugging, use [node-inspector](/dannycoates/node-inspector) and make sure you have meteor [v0.5.3](/meteor/meteor/blob/master/History.md#v053), which makes things easier thanks to support for `NODE_OPTIONS`:
 
-1. Install node-inspector: 'npm install -g node-inspector'
-2. Start meteor: `NODE_OPTIONS='--debug' mrt run`
-3. Start node-inspector
-4. Go to the URL given by node-inspector in Chrome
-5. Debug at will
+1. Install node-inspector: `npm install -g node-inspector`
+2. Start meteor: `NODE_OPTIONS='--debug-brk' mrt run`
+3. Start `node-inspector`
+4. In Chrome, go to the URL given by node-inspector
+5. If debugging remotely, make sure the port given at the URL above (8080) is not firewalled
+6. Debug at will
 
 ###What are the best practices for Test-Driven Development?
 TDD support isn't official yet in meteor, but (test) files placed in the `tests` subdirectory won't be loaded on the client or server. There are various Node.JS modules that help with testing - see [Meteor test driven development](http://stackoverflow.com/questions/12987525/meteor-test-driven-development) on SO.
+
+The most popular TDD frameworks for meteor at the moment are [Laika](http://arunoda.github.io/laika/) and [RTD](http://rtd.xolv.io/).
 
 ###Where should I put my files?
 
