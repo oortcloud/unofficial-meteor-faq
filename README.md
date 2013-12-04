@@ -273,7 +273,6 @@ The example apps in meteor are very simple, and don’t provide much insight. He
 ```bash
 lib/                       # <- any common code for client/server.
 lib/environment.js         # <- general configuration
-lib/methods.js             # <- Meteor.method definitions
 lib/external               # <- common code from someone else
 ## Note that js files in lib folders are loaded before other js files.
 
@@ -293,6 +292,7 @@ client/stylesheets/        # <- css / styl / less files
 
 server/publications.js     # <- Meteor.publish definitions
 server/lib/environment.js  # <- configuration of server side packages
+server/lib/methods.js             # <- Meteor.method definitions
 
 public/                    # <- static files, such as images, that are served directly.
 
