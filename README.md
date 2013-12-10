@@ -252,7 +252,7 @@ First off, you'll want to make sure you are using version 0.5.0 or later, which 
 3. Any method call can be made by hand from the JS console.
 
 ###How do I debug my meteor app?
-Client-side you have the console. For server-side debugging, use [node-inspector](/dannycoates/node-inspector) and make sure you have meteor [v0.5.3](/meteor/meteor/blob/master/History.md#v053), which makes things easier thanks to support for `NODE_OPTIONS`:
+Client-side you have the console. For server-side debugging, use [node-inspector](https://github.com/node-inspector/node-inspector) and make sure you have meteor [v0.5.3](https://github.com/meteor/meteor/blob/devel/History.md#v053) or later, which makes things easier thanks to support for `NODE_OPTIONS`:
 
 1. Install node-inspector: `npm install -g node-inspector`
 2. Start meteor: `NODE_OPTIONS='--debug-brk' mrt run`
