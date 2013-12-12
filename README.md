@@ -214,7 +214,14 @@ Meteor dev Nick Martin [wrote](https://github.com/meteor/meteor/issues/881#issue
 > We also have an item on the roadmap to make this easy:
 > https://trello.com/card/pattern-for-creating-multiple-database-records-from-a-method/508721606e02bb9d570016ae/57
 
+### How can I add additional RESTful API for my collections
+For adding RESTful methods on top of your data, look into the Collection API written for Meteor:
 
+https://github.com/crazytoad/meteor-collectionapi
+
+As for authentication for accessing the database, take a look at this project:
+
+https://github.com/meteor/meteor/wiki/Getting-started-with-Auth
 
 ## Deployment
 ###Where can I host my applications for production?
