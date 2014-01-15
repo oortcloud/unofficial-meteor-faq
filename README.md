@@ -276,6 +276,13 @@ Client-side you have the console. For server-side debugging, use [node-inspector
 5. If debugging remotely, make sure the port given at the URL above (8080) is not firewalled
 6. Debug at will
 
+### How do I run a local version of Meteor with the production database?
+Override the MONGO_URL environment variable with the output of meteor mongo, which looks like.
+> MONGO_URL=$(meteor mongo --url http://<your-app>.meteor.com/) meteor
+
+For testing or security or backup's sake, you may also just want to download the production database into your local app. There's [a script](https://github.com/AlexeyMK/meteor-download) that makes downloading your production database as easy as
+> ./download.sh <yourapp>.meteor.com
+
 ###What are the best practices for Test-Driven Development?
 TDD support isn't official yet in meteor, but (test) files placed in the `tests` subdirectory won't be loaded on the client or server. There are various Node.JS modules that help with testing - see [Meteor test driven development](http://stackoverflow.com/questions/12987525/meteor-test-driven-development) on SO.
 
