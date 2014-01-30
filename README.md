@@ -286,7 +286,7 @@ For testing or security or backup's sake, you may also just want to download the
 ###What are the best practices for Test-Driven Development?
 TDD support isn't official yet in meteor, but (test) files placed in the `tests` subdirectory won't be loaded on the client or server. There are various Node.JS modules that help with testing - see [Meteor test driven development](http://stackoverflow.com/questions/12987525/meteor-test-driven-development) on SO.
 
-The most popular TDD frameworks for meteor at the moment are [Laika](http://arunoda.github.io/laika/) and [RTD](http://rtd.xolv.io/).
+The most popular TDD frameworks for meteor at the moment are [Laika](http://arunoda.github.io/laika/), [RTD](http://rtd.xolv.io/), and [Safety Harness](http://safety-harness.meteor.com), which was designed to address some of the shortcomings of the first two - see the [feature comparison](http://safety-harness.meteor.com/comparison) and the [meteor-talk thread](https://groups.google.com/forum/#!msg/meteor-talk/J_UFdK7530k/LfQ0XveFziwJ) where the three authors duke it out. 
 
 ###Where should I put my files?
 
