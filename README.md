@@ -260,11 +260,29 @@ There is some good work in Mike Bannister's [forms package](http://forms.meteor.
 There's brief discussion [on telescope](http://telesc.pe/posts/ae8561f8-02c6-47da-81d3-4758ee6effa3). Also, there's a [filepicker smart package](https://atmosphere.meteor.com/package/filepicker).
 
 ###What are best practices for security?
-First off, you'll want to make sure you are using version 0.5.0 or later, which implements [authentication](http://docs.meteor.com/#accounts_api). Some other points:
+Core dev Emily Stark has given [some](http://www.youtube.com/watch?v=79uMp-S23MA) [fantastic](http://www.youtube.com/watch?v=A8TXDB6AJ34) [talks](http://livestre.am/4KZ5s) about Meteor security. 
 
-1. Files in `server/` do not get served to the client
-2. All other JS files do, (although they are minified + concatenated).
-3. Any method call can be made by hand from the JS console.
+This is not a definitive listing, but some common points that should be followed:
+
+* A default Meteor project comes with the `insecure` and `autopublish` packages enabled to assist with rapid development. These should be disabled before development is completed.
+  * With the `insecure` package removed, Collection insertions, updates and removals can be executed from the client if they pass one `Collection.allow` method and fail to trigger a `Collection.deny` method.
+* Code that resides outside the `server/` folder is delivered to all clients. Ensure no sensitive code is stored outside this folder.
+  * Any API keys or other sensitive information should be stored outside your codebase and delivered via [environment variable](http://docs.meteor.com/#commandline).
+  * Even users who are not logged in have access to the templates of the whole site, possibly including admin templates, etc.
+  * Your client code can be unminified and the `Meteor.methods` discovered. Additionally, your Meteor application can be [fuzzed](http://en.wikipedia.org/wiki/Fuzz_testing). Don't rely on security through obscurity. Use the [Meteor Accounts](http://docs.meteor.com/#accounts_api) system to validate and authenticate every point of client access.
+* Server-side code has full read/write access to the database. Additionally, `Meteor.methods` can be called from the terminal by any client at any time. This means you should:
+  * Ensure authentication checks exist for each `Meteor.method`.
+  * Ensure any client-provided data is of the proper type e.g. run through the `check` [package](http://docs.meteor.com/#match).
+  * A companion tool to the `check` package is the `audit-arguments-check` [package](http://docs.meteor.com/#auditargumentchecks) which ensures every argument passed has been run through `check`.
+* Meteor lets you exactly specify which data is published and to which client.
+  * Your application take care which information is published to which users.
+  * Any client-provided information passed to a publish function should be run through the `check` package.
+  * Inside a `Meteor.publish` function, use the server-provided `this.userId`  not a client-provided property to determine access. 
+  * Take extra care with any publish function that deals with the `Meteor.users` Collection.
+* Using the `browser-policy` [package](http://docs.meteor.com/#browserpolicy)  helps prevent malicious Javascript from being injected client-side, your site being iframed by a malicious site, etc.
+* You should be using the most up-to-date version of Meteor possible, but minimally Meteor version 0.6.6.2 (0.6.6.2 was a nodejs security patch). 
+
+
 
 ###How do I debug my meteor app?
 Client-side you have the console. For server-side debugging, use [node-inspector](https://github.com/node-inspector/node-inspector) and make sure you have meteor [v0.5.3](https://github.com/meteor/meteor/blob/devel/History.md#v053) or later, which makes things easier thanks to support for `NODE_OPTIONS`:
