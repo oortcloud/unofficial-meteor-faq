@@ -1,6 +1,6 @@
 Unofficial Meteor FAQ
 =====================
-Just answering some common questions that aren’t answered in the [official meteor FAQ](http://www.meteor.com/faq/). Thanks go to [@dandv](/dandv), [@possibilities](/possibilities), [@IainShigeoka](/IainShigeoka), [@brainclone](/brainclone), [@matb33](/matb33), [@drorm](/@drorm), [@zVictor](/@zVictor), [@nleush](/@nleush) and [@emgee3](/emgee3).
+Just answering some common questions that aren’t answered in the [official meteor FAQ](http://www.meteor.com/faq/). Thanks go to [@dandv](https://github.com/dandv), [@possibilities](https://github.com/possibilities), [@IainShigeoka](https://github.com/IainShigeoka), [@brainclone](https://github.com/brainclone), [@matb33](https://github.com/matb33), [@drorm](https://github.com/drorm), [@zVictor](https://github.com/zVictor), [@nleush](https://github.com/nleush) and [@emgee3](https://github.com/emgee3).
 
 ###How do I update this FAQ?
 
@@ -227,9 +227,6 @@ For adding RESTful methods on top of your data, look into the Collection API wri
 
 https://github.com/crazytoad/meteor-collectionapi
 
-As for authentication for accessing the database, take a look at this project:
-
-https://github.com/meteor/meteor/wiki/Getting-started-with-Auth
 
 ## Deployment
 ###Where can I host my applications for production?
