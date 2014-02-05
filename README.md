@@ -282,7 +282,11 @@ This is not a definitive listing, but some common points that should be followed
 
 
 ###How do I debug my meteor app?
-Client-side you have the console. For server-side debugging, use [node-inspector](https://github.com/node-inspector/node-inspector) and make sure you have meteor [v0.5.3](https://github.com/meteor/meteor/blob/devel/History.md#v053) or later, which makes things easier thanks to support for `NODE_OPTIONS`:
+Client-side you have the browser console. 
+
+If you're using an IDE like WebStorm, see [this SO answer](http://stackoverflow.com/questions/14751080/how-can-i-debug-my-app-using-the-webstorm-ide/21571249#21571249).
+
+For server-side debugging, use [node-inspector](https://github.com/node-inspector/node-inspector) and make sure you have meteor [v0.5.3](https://github.com/meteor/meteor/blob/devel/History.md#v053) or later, which makes things easier thanks to support for `NODE_OPTIONS`:
 
 1. Install node-inspector: `npm install -g node-inspector`
 2. Start meteor: `NODE_OPTIONS='--debug-brk' mrt run`
