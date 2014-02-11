@@ -263,21 +263,21 @@ This is not a definitive listing, but some common points that should be followed
 
 * A default Meteor project comes with the `insecure` and `autopublish` packages enabled to assist with rapid development. These should be disabled before development is completed.
   * With the `insecure` package removed, Collection insertions, updates and removals can be executed from the client if they pass one `Collection.allow` method and fail to trigger a `Collection.deny` method.
-* Code that resides outside the `server/` folder is delivered to all clients. Ensure no sensitive code is stored outside this folder.
-  * Any API keys or other sensitive information should be stored outside your codebase and delivered via [environment variable](http://docs.meteor.com/#commandline).
+* Code that resides outside the [`server`, `private` and `test`](http://docs.meteor.com/#structuringyourapp) subdirectories is delivered to all clients. Ensure no sensitive code is stored outside these folders.
+  * Any API keys or other sensitive information should be stored outside your codebase and delivered via [environment variables](http://docs.meteor.com/#meteor_settings).
   * Even users who are not logged in have access to the templates of the whole site, possibly including admin templates, etc.
   * Your client code can be unminified and the `Meteor.methods` discovered. Additionally, your Meteor application can be [fuzzed](http://en.wikipedia.org/wiki/Fuzz_testing). Don't rely on security through obscurity. Use the [Meteor Accounts](http://docs.meteor.com/#accounts_api) system to validate and authenticate every point of client access.
 * Server-side code has full read/write access to the database. Additionally, `Meteor.methods` can be called from the terminal by any client at any time. This means you should:
   * Ensure authentication checks exist for each `Meteor.method`.
-  * Ensure any client-provided data is of the proper type e.g. run through the `check` [package](http://docs.meteor.com/#match).
-  * A companion tool to the `check` package is the `audit-arguments-check` [package](http://docs.meteor.com/#auditargumentchecks) which ensures every argument passed has been run through `check`.
+  * Ensure any client-provided data is of the proper type e.g. run through the [`check` package](http://docs.meteor.com/#match).
+  * A companion tool to the `check` package is the [`audit-arguments-check` package](http://docs.meteor.com/#auditargumentchecks) which ensures every argument passed has been run through `check`.
 * Meteor lets you exactly specify which data is published and to which client.
-  * Your application take care which information is published to which users.
-  * Any client-provided information passed to a publish function should be run through the `check` package.
-  * Inside a `Meteor.publish` function, use the server-provided `this.userId`  not a client-provided property to determine access. 
+  * Your application should take care which information is published to which users.
+  * Any client-provided information passed to a [publish function](http://docs.meteor.com/#publishandsubscribe) should be run through the `check` package.
+  * Inside a `Meteor.publish` function, use the server-provided `this.userId`, not a client-provided property to determine access. 
   * Take extra care with any publish function that deals with the `Meteor.users` Collection.
-* Using the `browser-policy` [package](http://docs.meteor.com/#browserpolicy)  helps prevent malicious Javascript from being injected client-side, your site being iframed by a malicious site, etc.
-* You should be using the most up-to-date version of Meteor possible, but minimally Meteor version 0.6.6.2 (0.6.6.2 was a nodejs security patch). 
+* Using the `browser-policy` [package](http://docs.meteor.com/#browserpolicy)  helps prevent malicious JavaScript from being injected client-side, your site being iframed by a malicious site, etc.
+* You should be using the most up-to-date version of Meteor possible, but minimally Meteor version 0.6.6.2 (0.6.6.2 was a Node.js security patch). 
 
 
 
