@@ -235,7 +235,7 @@ Meteor gives you a proper infrastructure to deploy your application:
 meteor deploy myapp.meteor.com
 ```
 
-However, there are some [other options available](http://stackoverflow.com/a/13504325/599991).
+Meteorpedia lists more [deployment options](http://www.meteorpedia.com/read/Deployment).
 
 ###How do I hook into an existing, running MongoDB instance?
 You can start meteor with the `MONGO_URL` environment var set:
