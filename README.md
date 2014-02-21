@@ -1,6 +1,6 @@
 Unofficial Meteor FAQ
 =====================
-Just answering some common questions that aren’t answered in the [official meteor FAQ](http://www.meteor.com/faq/). Thanks go to [@dandv](https://github.com/dandv), [@possibilities](https://github.com/possibilities), [@IainShigeoka](https://github.com/IainShigeoka), [@brainclone](https://github.com/brainclone), [@matb33](https://github.com/matb33), [@drorm](https://github.com/drorm), [@zVictor](https://github.com/zVictor), [@nleush](https://github.com/nleush) and [@emgee3](https://github.com/emgee3).
+Just answering some common questions that aren’t answered on the [meteor site](http://www.meteor.com/). Thanks go to [@dandv](https://github.com/dandv), [@possibilities](https://github.com/possibilities), [@IainShigeoka](https://github.com/IainShigeoka), [@brainclone](https://github.com/brainclone), [@matb33](https://github.com/matb33), [@drorm](https://github.com/drorm), [@zVictor](https://github.com/zVictor), [@nleush](https://github.com/nleush) and [@emgee3](https://github.com/emgee3).
 
 ###How do I update this FAQ?
 
