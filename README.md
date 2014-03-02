@@ -1,6 +1,6 @@
 Unofficial Meteor FAQ
 =====================
-Just answering some common questions that aren’t answered on the [meteor site](http://www.meteor.com/). Thanks go to [@dandv](https://github.com/dandv), [@possibilities](https://github.com/possibilities), [@IainShigeoka](https://github.com/IainShigeoka), [@brainclone](https://github.com/brainclone), [@matb33](https://github.com/matb33), [@drorm](https://github.com/drorm), [@zVictor](https://github.com/zVictor), [@nleush](https://github.com/nleush) and [@emgee3](https://github.com/emgee3).
+Just answering some common questions that aren’t answered on the [meteor site](http://www.meteor.com/). Thanks to all the contributors: https://github.com/oortcloud/unofficial-meteor-faq/graphs/contributors !
 
 ###How do I update this FAQ?
 
@@ -58,7 +58,7 @@ Read this [guide](http://meteorhacks.com/complete-npm-integration-for-meteor.htm
 ###How do I stop meteor from reactively overwriting DOM changes from outside meteor?
 
 You'll want to read the [templates section of the docs](http://docs.meteor.com/#templates_api).
-You'll also be interested in the [upcomming rendering system blaze](https://github.com/meteor/meteor/wiki/Using-Blaze)
+You'll also be interested in the [upcoming rendering system blaze](https://github.com/meteor/meteor/wiki/Using-Blaze)
 
 ### How do I ensure control state preservation across live page updating?
 
