@@ -266,7 +266,7 @@ This is not a definitive listing, but some common points that should be followed
 
 * A default Meteor project comes with the `insecure` and `autopublish` packages enabled to assist with rapid development. These should be disabled before development is completed.
   * With the `insecure` package removed, Collection insertions, updates and removals can be executed from the client if they pass one `Collection.allow` method and fail to trigger a `Collection.deny` method.
-* Code that resides outside the [`server`, `private` and `test`](http://docs.meteor.com/#structuringyourapp) subdirectories is delivered to all clients. Ensure no sensitive code is stored outside these folders.
+* Code that resides outside the [`server`, `private` and `tests`](http://docs.meteor.com/#structuringyourapp) subdirectories is delivered to all clients. Ensure no sensitive code is stored outside these folders.
   * Any API keys or other sensitive information should be stored outside your codebase and delivered via [environment variables](http://docs.meteor.com/#meteor_settings).
   * Even users who are not logged in have access to the templates of the whole site, possibly including admin templates, etc.
   * Your client code can be unminified and the `Meteor.methods` discovered. Additionally, your Meteor application can be [fuzzed](http://en.wikipedia.org/wiki/Fuzz_testing). Don't rely on security through obscurity. Use the [Meteor Accounts](http://docs.meteor.com/#accounts_api) system to validate and authenticate every point of client access.
