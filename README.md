@@ -57,8 +57,9 @@ Read this [guide](http://meteorhacks.com/complete-npm-integration-for-meteor.htm
 
 ###How do I stop meteor from reactively overwriting DOM changes from outside meteor?
 
-You'll want to read the [templates section of the docs](http://docs.meteor.com/#templates_api).
-You'll also be interested in the [upcoming rendering system blaze](https://github.com/meteor/meteor/wiki/Using-Blaze)
+Since the rendering-system blaze has come out, this shouldn't happen anymore.
+You may want to read the [templates section of the docs](http://docs.meteor.com/#templates_api).
+You may also be interested in the [using-blaze article](https://github.com/meteor/meteor/wiki/Using-Blaze).
 
 ### How do I ensure control state preservation across live page updating?
 
