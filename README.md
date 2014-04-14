@@ -301,10 +301,10 @@ For server-side debugging, use [node-inspector](https://github.com/node-inspecto
 
 ### How do I run a local version of Meteor with the production database?
 Override the MONGO_URL environment variable with the output of meteor mongo, which looks like.
-> MONGO_URL=$(meteor mongo --url http://<your-app>.meteor.com/) meteor
+> MONGO_URL=$(meteor mongo --url http://&lt;your-app&gt;.meteor.com/) meteor
 
 For testing or security or backup's sake, you may also just want to download the production database into your local app. There's [a script](https://github.com/AlexeyMK/meteor-download) that makes downloading your production database as easy as
-> ./download.sh <yourapp>.meteor.com
+> ./download.sh &lt;yourapp&gt;.meteor.com
 
 ###What are the best practices for Test-Driven Development?
 TDD support isn't official yet in meteor, but (test) files placed in the `tests` subdirectory won't be loaded on the client or server. There are various Node.JS modules that help with testing - see [Meteor test driven development](http://stackoverflow.com/questions/12987525/meteor-test-driven-development) on SO.
@@ -372,7 +372,7 @@ There isn't an official list of supported versions, but meteor is known to work 
 
 Client-side error caused by the server crashing and sending a message starting with "Your app is crashing. Here's the latest log."
 
-### "TypeError: Object #<Object> has no method '_defineMutationMethods'"
+### "TypeError: Object #&lt;Object&gt; has no method '_defineMutationMethods'"
 
 Server-side error. Most likely, you forgot to place "new" before a constructor call in the client. [Read more](https://github.com/meteor/meteor/issues/457).
 
