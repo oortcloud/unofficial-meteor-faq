@@ -207,7 +207,7 @@ Note that considering this option is undocumented (and underscore-cased), it cou
 
 ### Why do I sometimes see two copies of a document during a latency compensated method?
 
-If you insert a document in the both the real (server-side) method and the simulation (client-side), but then subsequently do more work on the server, there will be a time period where, for the a single browser, there will be two copies of the document in the database.
+If you insert a document in both the real (server-side) method and the simulation (client-side), but then subsequently do more work on the server, there will be a time period where, for the a single browser, there will be two copies of the document in the database.
 
 Meteor dev Nick Martin [wrote](https://github.com/meteor/meteor/issues/881#issuecomment-15882223):
 
