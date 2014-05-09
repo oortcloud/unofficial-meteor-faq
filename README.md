@@ -202,8 +202,7 @@ Posts.find().observe({
   }
 })
 ```
-
-Note that considering this option is undocumented (and underscore-cased), it could silently change in the future.
+Note that this option only works on the client. Also note that considering this option is undocumented (and underscore-cased), it could silently change in the future.
 
 ### Why do I sometimes see two copies of a document during a latency compensated method?
 
