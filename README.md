@@ -1,5 +1,3 @@
-Unofficial Meteor FAQ
-=====================
 Just answering some common questions that aren’t answered on the [meteor site](http://www.meteor.com/). Thanks to all the contributors: https://github.com/oortcloud/unofficial-meteor-faq/graphs/contributors !
 
 ###How do I update this FAQ?
