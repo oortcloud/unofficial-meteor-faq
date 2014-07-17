@@ -4,8 +4,8 @@ Just answering some common questions that aren’t answered on the [meteor site]
 
 **Table of Contents**
 
-	- [How do I update this FAQ?](#user-content-how-do-i-update-this-faq)
-	- [How can I find out more about Meteor?](#user-content-how-can-i-find-out-more-about-meteor)
+- [How do I update this FAQ?](#user-content-how-do-i-update-this-faq)
+- [How can I find out more about Meteor?](#user-content-how-can-i-find-out-more-about-meteor)
 - [Customizing Meteor](#user-content-customizing-meteor)
 	- [How do I use a preview release of meteor?](#user-content-how-do-i-use-a-preview-release-of-meteor)
 	- [How do I use a unreleased branch of meteor?](#user-content-how-do-i-use-a-unreleased-branch-of-meteor)
