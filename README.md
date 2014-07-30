@@ -129,7 +129,7 @@ This is now straightforward with the `rendered` [callback](http://docs.meteor.co
 Unfortunately, this [isn't yet supported](https://github.com/meteor/meteor/issues/266). However, you can work around it, like so:
 ```js
 Meteor.startup(function() {
-  Meteor.autorun(function() {
+  Deps.autorun(function() {
     document.title = Session.get('document-title');
   });
 });
