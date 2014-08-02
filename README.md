@@ -434,4 +434,4 @@ Mongo was killed without cleaning itself up. Try removing `.meteor/local/db/mong
 
 ### `@importing` in less files causes errors related to variables not found.
 
-If you're using a collection of less files that need to be imported in a specific order because of variable dependencies (like a custom Twitter Bootstrap installation) you can change the extension of the less files _to be imported_ from `.less` to `.lessimport` and then change your `@import file.less` to `@import file.lessimport`. This will prevent the less compiler from automatically trying to compile all your import files independently, yet still let you use them in the order you want.
+If you're using a collection of less files that need to be imported in a specific order because of variable dependencies (like a custom Twitter Bootstrap installation) you can change the extension of the less files _to be imported_ from `.less` to `.import.less` and then change your `@import file.less` to `@import file.import.less`. This will prevent the less compiler from automatically trying to compile all your import files independently, yet still let you use them in the order you want.
