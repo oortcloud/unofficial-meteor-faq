@@ -50,7 +50,7 @@ Just answering some common questions that aren’t answered on the [meteor site]
 	- ["Uncaught TypeError: Converting circular structure to JSON"](#user-content-uncaught-typeerror-converting-circular-structure-to-json)
 	- ["Unexpected mongo exit code 100. Restarting."](#user-content-unexpected-mongo-exit-code-100-restarting)
 	- [@importing in less files causes errors related to variables not found.](#user-content-importing-in-less-files-causes-errors-related-to-variables-not-found)
-	- ["Connecting with default MongoDB database"](#user-content-connecting-with-default-mongodb-database)
+	- [Connecting with default MongoDB database](#user-content-connecting-with-default-mongodb-database)
 
 
 ###How do I update this FAQ?
@@ -440,4 +440,4 @@ If you're using a collection of less files that need to be imported in a specifi
 
 ### Connecting with default MongoDB database
 
-In order to look up default content of default MongoDB database, you can retreive *MONGO_URI* by running following command: ````meteor mongo -U````
+In order to look up default content of default MongoDB database, you can retreive `MONGO_URI` by running following command: ````meteor mongo -U````
