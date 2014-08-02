@@ -440,4 +440,4 @@ If you're using a collection of less files that need to be imported in a specifi
 
 ### Connecting with default MongoDB database
 
-In order to look up default content of default MongoDB database, you can retreive `MONGO_URI` by running following command: ````meteor mongo -U````
+In order to look up content of default MongoDB database, you can retreive `MONGO_URI` by running following command: ````meteor mongo -U````
