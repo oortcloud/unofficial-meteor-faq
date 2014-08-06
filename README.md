@@ -50,6 +50,8 @@ Just answering some common questions that aren’t answered on the [meteor site]
 	- ["Uncaught TypeError: Converting circular structure to JSON"](#user-content-uncaught-typeerror-converting-circular-structure-to-json)
 	- ["Unexpected mongo exit code 100. Restarting."](#user-content-unexpected-mongo-exit-code-100-restarting)
 	- [@importing in less files causes errors related to variables not found.](#user-content-importing-in-less-files-causes-errors-related-to-variables-not-found)
+	- [Connecting with default MongoDB database](#user-content-connecting-with-default-mongodb-database)
+
 
 ###How do I update this FAQ?
 
@@ -434,4 +436,8 @@ Mongo was killed without cleaning itself up. Try removing `.meteor/local/db/mong
 
 ### `@importing` in less files causes errors related to variables not found.
 
-If you're using a collection of less files that need to be imported in a specific order because of variable dependencies (like a custom Twitter Bootstrap installation) you can change the extension of the less files _to be imported_ from `.less` to `.lessimport` and then change your `@import file.less` to `@import file.lessimport`. This will prevent the less compiler from automatically trying to compile all your import files independently, yet still let you use them in the order you want.
+If you're using a collection of less files that need to be imported in a specific order because of variable dependencies (like a custom Twitter Bootstrap installation) you can change the extension of the less files _to be imported_ from `.less` to `.import.less` and then change your `@import file.less` to `@import file.import.less`. This will prevent the less compiler from automatically trying to compile all your import files independently, yet still let you use them in the order you want.
+
+### Connecting with default MongoDB database
+
+In order to look up content of default MongoDB database, you can retreive `MONGO_URI` by running following command: ````meteor mongo -U````
