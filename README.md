@@ -357,9 +357,11 @@ For testing or security or backup's sake, you may also just want to download the
 > ./download.sh &lt;yourapp&gt;.meteor.com
 
 ###What are the best practices for Test-Driven Development?
-TDD support isn't official yet in meteor, but (test) files placed in the `tests` subdirectory won't be loaded on the client or server. There are various Node.JS modules that help with testing - see [Meteor test driven development](http://stackoverflow.com/questions/12987525/meteor-test-driven-development) on SO.
+[Velocity](https://github.com/meteor-velocity/velocity) is Meteor's official testing solution as of 0.8.1.
 
-The most popular TDD frameworks for meteor at the moment are [Laika](http://arunoda.github.io/laika/), [RTD](http://rtd.xolv.io/), and [Safety Harness](http://safety-harness.meteor.com), which was designed to address some of the shortcomings of the first two - see the [feature comparison](http://safety-harness.meteor.com/comparison) and the [meteor-talk thread](https://groups.google.com/forum/#!msg/meteor-talk/J_UFdK7530k/LfQ0XveFziwJ) where the three authors duke it out. 
+TDD support was't official in meteor prior to 0.8.1, but (test) files placed in the `tests` subdirectory won't be loaded on the client or server. There are various Node.JS modules that help with testing in versions prior to 0.8.1 - see [Meteor test driven development](http://stackoverflow.com/questions/12987525/meteor-test-driven-development) on SO.
+
+The most popular TDD frameworks for meteor 0.8.0 and lower were [Laika](http://arunoda.github.io/laika/), [RTD](http://rtd.xolv.io/), and [Safety Harness](http://safety-harness.meteor.com), which was designed to address some of the shortcomings of the first two - see the [feature comparison](http://safety-harness.meteor.com/comparison) and the [meteor-talk thread](https://groups.google.com/forum/#!msg/meteor-talk/J_UFdK7530k/LfQ0XveFziwJ) where the three authors duke it out. But if you're using 0.8.1 or later, [Velocity](https://github.com/meteor-velocity/velocity) is where it's at.
 
 ###Where should I put my files?
 
