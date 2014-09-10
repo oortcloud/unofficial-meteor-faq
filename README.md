@@ -83,7 +83,7 @@ Or you could let [meteorite](http://oortcloud.github.com/meteorite/) do this for
 
 ###How can I use someone else's javascript in my meteor project?
 
-It depends on how it's packaged. If there's already a smart package, you can use [meteorite](http://oortcloud.github.com/meteorite/) to include it. Make sure you check the [atmosphere](http://atmosphere.meteor.com) package repository too.
+It depends on how it's packaged. Search for it on [Atmosphere](https://atmospherejs.com), and if there's a existing package, it should be as simple as `meteor add X` to get it.
 
 If there's no Atmosphere package yet, consider [repackaging the external library for meteor](https://github.com/awwx/misc/wiki/Packaging-Existing-Libraries-for-Meteor).
 
