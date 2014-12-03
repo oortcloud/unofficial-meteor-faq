@@ -440,7 +440,7 @@ Mongo was killed without cleaning itself up. Try removing `.meteor/local/db/mong
 
 If you're using a collection of less files that need to be imported in a specific order because of variable dependencies (like a custom Twitter Bootstrap installation):
 * for LESS: you can change the extension of the less files _to be imported_ from `.less` to `.import.less` and then change your `@import file.less` to `@import file.import.less`. 
-* for SaSS: rename the files you're importing by adding a `_` before them. `file.scss` becomes `_file.scss`. And then change `@import 'file';` to `@import '_file';`.
+* for Sass: rename the files you're importing by adding a `_` before them. `file.scss` becomes `_file.scss`. And then change `@import 'file';` to `@import '_file';`.
 This will prevent the less/sass compiler from automatically trying to compile all your import files independently, yet still let you use them in the order you want.
 
 ### Connecting with default MongoDB database
