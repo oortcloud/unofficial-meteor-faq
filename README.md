@@ -49,7 +49,7 @@ Just answering some common questions that aren’t answered on the [meteor site]
 	- ["TypeError: Object #<Object> has no method '_defineMutationMethods'"](#user-content-typeerror-object-object-has-no-method-_definemutationmethods)
 	- ["Uncaught TypeError: Converting circular structure to JSON"](#user-content-uncaught-typeerror-converting-circular-structure-to-json)
 	- ["Unexpected mongo exit code 100. Restarting."](#user-content-unexpected-mongo-exit-code-100-restarting)
-	- [@importing in less files causes errors related to variables not found.](#user-content-importing-in-less-files-causes-errors-related-to-variables-not-found)
+	- [@importing in less or sass files causes errors related to variables not found.](#user-content-importing-in-less-files-causes-errors-related-to-variables-not-found)
 	- [Connecting with default MongoDB database](#user-content-connecting-with-default-mongodb-database)
 
 
@@ -436,9 +436,12 @@ Check if you're trying to save into `Session` an object with circular references
 
 Mongo was killed without cleaning itself up. Try removing `.meteor/local/db/mongod.lock`. If that fails do an `meteor reset`.
 
-### `@importing` in less files causes errors related to variables not found.
+### `@importing` in less or sass files causes errors related to variables not found.
 
-If you're using a collection of less files that need to be imported in a specific order because of variable dependencies (like a custom Twitter Bootstrap installation) you can change the extension of the less files _to be imported_ from `.less` to `.import.less` and then change your `@import file.less` to `@import file.import.less`. This will prevent the less compiler from automatically trying to compile all your import files independently, yet still let you use them in the order you want.
+If you're using a collection of less files that need to be imported in a specific order because of variable dependencies (like a custom Twitter Bootstrap installation):
+* for LESS: you can change the extension of the less files _to be imported_ from `.less` to `.import.less` and then change your `@import file.less` to `@import file.import.less`. 
+* for Sass: rename the files you're importing by adding a `_` before them. `file.scss` becomes `_file.scss`. And then change `@import 'file';` to `@import '_file';`.
+This will prevent the less/sass compiler from automatically trying to compile all your import files independently, yet still let you use them in the order you want.
 
 ### Connecting with default MongoDB database
 
