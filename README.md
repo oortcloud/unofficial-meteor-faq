@@ -35,6 +35,7 @@ Just answering some common questions that aren’t answered on the [meteor site]
 	- [How do I hook into an existing, running MongoDB instance?](#user-content-how-do-i-hook-into-an-existing-running-mongodb-instance)
 	- [How do I set environment variables on meteor.com?](#user-content-how-do-i-set-environment-variables-on-meteorcom)
 - [Best practices](#user-content-best-practices)
+	- [Should I check in this `.meteor/` folder into my git repo?](#should-i-check-in-this-meteor-folder-into-my-git-repo)
 	- [What are the best practices for form handling?](#user-content-what-are-the-best-practices-for-form-handling)
 	- [What is the best way to do file uploads?](#user-content-what-is-the-best-way-to-do-file-uploads)
 	- [What are best practices for security?](#user-content-what-are-best-practices-for-security)
@@ -301,6 +302,13 @@ Note that pre-existing data in mongo [may be hard to deal with](https://github.c
 This is not currently possible, unfortunately. You can set `process.env.X = Y` early on in the startup of your app though.
 
 ## Best practices
+
+###Should I check in this `.meteor/` folder into my git repo?
+Yes. (Unless you've put unwanted files in there yourself.)
+
+The `.meteor/` folder includes the files `packages` (a list of the project's current packages) and `release` (describing what Meteor version your project is using); these are important for other developers to clone and use your project.
+
+Meteor also generates a `.meteor/.gitignore` file, which tells Git to ignore the folders `.meteor/local` (the default database location) and `.meteor/meteorite` (compiled packages). Users of other source control systems should manually prevent these subfolders from entering source control.
 
 ###What are the best practices for form handling?
 While originally intended to be part of core, forms is not currently on the roadmap.
