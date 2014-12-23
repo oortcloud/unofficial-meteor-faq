@@ -308,7 +308,7 @@ Yes. (Unless you've put unwanted files in there yourself.)
 
 The `.meteor/` folder includes the files `packages` (a list of the project's current packages) and `release` (describing what Meteor version your project is using); these are important for other developers to clone and use your project.
 
-Meteor also generates a `.meteor/.gitignore` file, which tells Git to ignore the folders `.meteor/local` (the default database location) and `.meteor/meteorite` (compiled packages). Users of other source control systems should manually prevent these subfolders from entering source control.
+Meteor also generates a `.meteor/.gitignore` file, which tells Git to ignore the folder `.meteor/local` (the built development app and database). Users of other source control systems should manually prevent this folder from entering source control.
 
 ###What are the best practices for form handling?
 While originally intended to be part of core, forms is not currently on the roadmap.
