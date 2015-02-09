@@ -61,7 +61,7 @@ Send me (Tom Coleman, @tmeasday) a message on github (or otherwise) or fork the 
 ###How can I find out more about Meteor?
 
  - Obviously, start at the [Meteor Website](http://meteor.com).
- - [This blog post](http://www.discovermeteor.com/2013/02/10/useful-meteor-resources/) has a list of online resources.
+ - [This blog post](https://www.discovermeteor.com/blog/going-further-with-meteor-links-resources/) has a list of online resources.
  - [Discover Meteor](http://discovermeteor.com) (written by the author of this list) is a book which takes you through building an app from scratch.
 
 ## Customizing Meteor
