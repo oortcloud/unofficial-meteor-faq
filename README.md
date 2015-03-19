@@ -132,7 +132,7 @@ This is now straightforward with the `rendered` [callback](http://docs.meteor.co
 Unfortunately, this [isn't yet supported](https://github.com/meteor/meteor/issues/266). However, you can work around it, like so:
 ```js
 Meteor.startup(function() {
-  Deps.autorun(function() {
+  Tracker.autorun(function() {
     document.title = Session.get('document-title');
   });
 });
@@ -145,7 +145,7 @@ Note also that this code should work fine with the spiderable package, as long a
 If you are using an `autorun` block, you could try this:
 
 ```js
-Deps.autorun(function(computation) {
+Tracker.autorun(function(computation) {
   computation.onInvalidate(function() {
     console.trace();
   });
