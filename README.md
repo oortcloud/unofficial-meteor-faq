@@ -99,10 +99,10 @@ var foo = Npm.require('foo');
 If you need a npm package that is not included in Meteor, you need to create a Meteor package that wraps it. Avital Oliver created a simple example for the [xml2js npm library](https://github.com/avital/meteor-xml2js-npm-demo).
 >Note that you _cannot_ `Npm.require` such npm packages from _within your app_, you can only require them _within the Meteor package that depends on them_. This is due to different Meteor packages potentially depending on different versions of the same npm package.
 
-There is another way you can use NPM modules with your app. 
+There is another way you can use NPM modules with your app.
  * first you need to install [npm](https://atmosphere.meteor.com/package/npm) smart package with - `mrt add npm`
  * then add a file named `packages.json` and add npm modules
- 
+
 Read this [guide](http://meteorhacks.com/complete-npm-integration-for-meteor.html) to learn more on [using NPM modules with a meteor app](http://meteorhacks.com/complete-npm-integration-for-meteor.html).
 
 ## Reactivity and Rendering
@@ -149,7 +149,7 @@ Deps.autorun(function(computation) {
   computation.onInvalidate(function() {
     console.trace();
   });
-  
+
   // standard autorun code...
 });
 ```
@@ -202,7 +202,7 @@ You can view these articles ([part 1](http://www.webtempest.com/meteorjs-animati
 ###How do I animate "drag-n-drop", "add" and "remove" actions on lists?
 
 Example implementation here: [meteor-todos-sortable-animation](https://github.com/nleush/meteor-todos-sortable-animation).
- 
+
 ## Subscriptions and Methods
 
 ### How can I alter every document before it is added to the database?
@@ -232,7 +232,7 @@ globalSubscriptionHandles.push(Meteor.subscribe('foo'));
 ...
 
 Template.item.areCollectionsReady = function()
-{	
+{
 	var isReady = globalSubscriptionHandles.every(function(handle)
 	{
 	    return handle.ready();
@@ -319,7 +319,7 @@ The most popular forms package currently in use is [autoform](http://beta.atmosp
 There's brief discussion [on telescope](http://telesc.pe/posts/ae8561f8-02c6-47da-81d3-4758ee6effa3). Also, there's a [filepicker smart package](https://atmosphere.meteor.com/package/filepicker).
 
 ###What are best practices for security?
-Core dev Emily Stark has given [some](http://www.youtube.com/watch?v=79uMp-S23MA) [fantastic](http://www.youtube.com/watch?v=A8TXDB6AJ34) [talks](http://livestre.am/4KZ5s) about Meteor security. 
+Core dev Emily Stark has given [some](http://www.youtube.com/watch?v=79uMp-S23MA) [fantastic](http://www.youtube.com/watch?v=A8TXDB6AJ34) [talks](http://livestre.am/4KZ5s) about Meteor security.
 
 This is not a definitive listing, but some common points that should be followed:
 
@@ -336,15 +336,15 @@ This is not a definitive listing, but some common points that should be followed
 * Meteor lets you exactly specify which data is published and to which client.
   * Your application should take care which information is published to which users.
   * Any client-provided information passed to a [publish function](http://docs.meteor.com/#publishandsubscribe) should be run through the `check` package.
-  * Inside a `Meteor.publish` function, use the server-provided `this.userId`, not a client-provided property to determine access. 
+  * Inside a `Meteor.publish` function, use the server-provided `this.userId`, not a client-provided property to determine access.
   * Take extra care with any publish function that deals with the `Meteor.users` Collection.
 * Using the `browser-policy` [package](http://docs.meteor.com/#browserpolicy)  helps prevent malicious JavaScript from being injected client-side, your site being iframed by a malicious site, etc.
-* You should be using the most up-to-date version of Meteor possible, but minimally Meteor version 0.6.6.2 (0.6.6.2 was a Node.js security patch). 
+* You should be using the most up-to-date version of Meteor possible, but minimally Meteor version 0.6.6.2 (0.6.6.2 was a Node.js security patch).
 
 
 
 ###How do I debug my meteor app?
-Client-side you have the browser console. 
+Client-side you have the browser console.
 
 If you're using an IDE like WebStorm, see [this SO answer](http://stackoverflow.com/questions/14751080/how-can-i-debug-my-app-using-the-webstorm-ide/21571249#21571249).
 
@@ -416,11 +416,7 @@ feature-foo/server/        # <- files only available on the server
 
 ### What IDEs are best suited for meteor?
 
-While many IDEs [support SASS](http://sass-lang.com/editors.html), [CoffeeScript](http://stackoverflow.com/questions/4084167/ide-or-its-add-in-for-coffeescript-programming) etc., at the moment, there are no known IDEs that support meteor. Two efforts are underway:
-
-* [Cloud9](https://github.com/meteor/meteor/issues/214#issuecomment-8892697), the cloud-based IDE with Node.js support
-* JetBrains [WebStorm](http://youtrack.jetbrains.com/issue/WI-13858) (Win/Mac/Linux), with existing support for Node.js. If you use Webstorm, make sure to [disable auto-save](http://devnet.jetbrains.net/message/5469319). Webstorm is proprietary software that offers a [gratis license](http://www.jetbrains.com/webstorm/buy/index.jsp) to people working on open source projects
-
+Since version 9.0 (current version 10.0) JetBrains [WebStorm](https://www.jetbrains.com/webstorm/) (Win/Mac/Linux) provides integration with the Meteor framework: coding assistance, server and client side debugging support, introspection, and much more. [Using Meteor with WebStorm](https://www.jetbrains.com/webstorm/help/using-meteor.html) page is a great starting point and [here](https://www.youtube.com/watch?v=yeqkGF3Z7rU) is a short video demo, as well. Meteor plugin is also available for the other JetBrains products: IntelliJ IDEA 14, PhpStorm 8, RubyMine 7 and PyCharm 4.
 
 ### What versions of Internet Explorer does meteor support?
 
@@ -447,7 +443,7 @@ Mongo was killed without cleaning itself up. Try removing `.meteor/local/db/mong
 ### `@importing` in less or sass files causes errors related to variables not found.
 
 If you're using a collection of less files that need to be imported in a specific order because of variable dependencies (like a custom Twitter Bootstrap installation):
-* for LESS: you can change the extension of the less files _to be imported_ from `.less` to `.import.less` and then change your `@import file.less` to `@import file.import.less`. 
+* for LESS: you can change the extension of the less files _to be imported_ from `.less` to `.import.less` and then change your `@import file.less` to `@import file.import.less`.
 * for Sass: rename the files you're importing by adding a `_` before them. `file.scss` becomes `_file.scss`. And then change `@import 'file';` to `@import '_file';`.
 This will prevent the less/sass compiler from automatically trying to compile all your import files independently, yet still let you use them in the order you want.
 
