@@ -206,7 +206,8 @@ Example implementation here: [meteor-todos-sortable-animation](https://github.co
 ## Subscriptions and Methods
 
 ### How can I alter every document before it is added to the database?
-There isn't support for this right now, but you can use a `deny` to achieve what you want on the server. For example, to timestamp each document as it goes into mongo:
+There is a feature request to add this to core - please [vote for it](https://github.com/meteor/meteor/issues/395).
+Right now you can hack around by using a `deny` to achieve what you want on the server. For example, to timestamp each document as it goes into MongoDB:
 
 ```js
 Posts.deny({insert: function(userId, doc) {
@@ -217,9 +218,9 @@ Posts.deny({insert: function(userId, doc) {
 
 You can do something similar with `update` to for example simulate a synthetic `updatedAt` field.
 
-Avoid the tempation to use `allow` for this, there's no guarantee it will run (only one `allow` needs to be successful for the `insert` to go ahead).
+Avoid the tempation to use `allow` for this, as there's no guarantee it will run (only one `allow` needs to be successful for the `insert` to go ahead).
 
-Alternatively, Mathieu Bouchard (@matb33) has some more complex code to achieve this in a more integrated way [here](https://gist.github.com/matb33/5258260). Ideally in the future core will support something like this.
+Until [the feature gets implemented in core](https://github.com/matb33/meteor-collection-hooks/issues/92), Mathieu Bouchard (@matb33) has published [collection-hooks](https://github.com/matb33/meteor-collection-hooks).
 
 
 ### How do I know when my subscription is "ready" and not still loading?
