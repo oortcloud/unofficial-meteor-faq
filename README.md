@@ -19,7 +19,6 @@ Just answering some common questions that aren’t answered on the [meteor site]
 	- [How can I tell why my code is getting re-run?](#user-content-how-can-i-tell-why-my-code-is-getting-re-run)
 - [Animation](#user-content-animation)
 	- [How do I animate when meteor changes things under me?](#user-content-how-do-i-animate-when-meteor-changes-things-under-me)
-	- [How do I ensure control state preservation across live page updating?](#user-content-how-do-i-ensure-control-state-preservation-across-live-page-updating-1)
 	- [How do I animate things adding/being removed from collections?](#user-content-how-do-i-animate-things-addingbeing-removed-from-collections)
 	- [How do I route my app between different views/pages?](#user-content-how-do-i-route-my-app-between-different-viewspages)
 	- [How do I animate/transition such view changes?](#user-content-how-do-i-animatetransition-such-view-changes)
@@ -121,7 +120,7 @@ From the [docs](http://docs.meteor.com): "This preserves all elements of type in
 
 Also, make sure to store related client-side data in the [Session](http://docs.meteor.com/#session) object (not in JavaScript variables)
 
-NOTE: form data will still get cleared across hot-code pushes unfortunately.
+NOTE: [form data will still get cleared across hot-code pushes](https://github.com/meteor/meteor/issues/4058) unfortunately.
 
 ###How do I get a callback that runs after my template is attached to the DOM?
 
@@ -158,15 +157,6 @@ Deps.autorun(function(computation) {
 ### How do I animate when meteor changes things under me?
 
 This is a similar problem to above. I outlined some techniques that have worked for me in a [blog post](http://bindle.me/blog/index.php/658/animations-in-meteor-state-of-the-game).
-### How do I ensure control state preservation across live page updating?
-
-Add the `preserve-inputs` package.
-
-From the [docs](http://docs.meteor.com): "This preserves all elements of type input, textarea, button, select, and option that have unique id attributes or that have name attributes that are unique within an enclosing element with an id attribute."
-
-Also, make sure to store related client-side data in the [Session](http://docs.meteor.com/#session) object (not in JavaScript variables)
-
-NOTE: form data will still get cleared across hot-code pushes unfortunately.
 
 ###How do I animate things adding/being removed from collections?
 
