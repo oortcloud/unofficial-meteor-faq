@@ -444,4 +444,4 @@ This will prevent the less/sass compiler from automatically trying to compile al
 
 ### Connecting with default MongoDB database
 
-In order to look up content of default MongoDB database, you can retreive `MONGO_URI` by running following command: ````meteor mongo -U````
+In order to look up content of default MongoDB database, you can retrieve `MONGO_URI` by running following command: ````meteor mongo -U````
